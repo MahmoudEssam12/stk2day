@@ -1,0 +1,16 @@
+{
+  "email_validation": "email is required",
+  "password_validation": "password is required",
+  "search_btn": "Search",
+  "search_txt": "What are you looking for?",
+  "no_products": "There are no products that match your search.",
+  "general_validation": "This field is required!",
+  "name": "name",
+  "country": "country",
+  "gov": "governorate",
+  "phonenumber": "phone number",
+  "zipcode": "zipcode",
+  "companyname": "company name",
+  "edit": "edit",
+  "save": "save"
+}

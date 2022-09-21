@@ -1,0 +1,20 @@
+.favourits {
+    header {
+        max-height: 400px;
+        background-color: var(--light-secondary);
+        padding: 2rem;
+        text-align: center;
+
+        img {
+            max-width: 200px;
+        }
+    }
+
+    .products {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 2rem 0;
+    }
+}

@@ -1,0 +1,122 @@
+.header_wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem 0rem;
+    margin: 1rem 0;
+    min-height: 100vh;
+
+    .col:first-child {
+        max-height: 50px;
+        overflow: hidden;
+    }
+
+    .col {
+        width: 48%;
+
+        h2 {
+            font-size: 2.5rem;
+            animation-name: change;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+
+            span {
+                display: block;
+                color: var(--secondary-color);
+                margin: 10px 0;
+            }
+        }
+
+        p {
+            color: var(--grey-color);
+            margin: 1rem 0;
+        }
+
+        a {
+            color: #fff;
+            background-color: var(--secondary-color);
+            padding: 1rem 2rem;
+            display: inline-block;
+            margin: 1rem 0;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all .3s ease;
+
+            &:hover {
+                background-color: var(--hover-color);
+            }
+        }
+
+        img {
+            max-width: 300px;
+        }
+    }
+}
+
+
+@keyframes change {
+
+    14.6%,
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+
+    29%,
+    25% {
+        transform: translate3d(0, -125%, 0);
+
+    }
+
+    43.8%,
+    50% {
+        transform: translate3d(0, -250%, 0);
+
+    }
+
+    58.4%,
+    75% {
+        transform: translate3d(0, -125%, 0);
+
+    }
+
+    73%,
+    100% {
+        transform: translate3d(0, 0, 0);
+
+    }
+
+    87%,
+    100% {
+        transform: translate3d(0, 0, 0);
+
+    }
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+
+    }
+}
+
+
+//1 to 2
+// 2 to 3
+// 3 to 4
+// 4 to 3
+// 3 to 2
+// 2 to 1
+
+/*** 
+6 is the number of animations
+
+6x + 6y = 100 (100% duration)
+6x + 8 = 100
+6x = 88
+x = 14.6
+
+// y = 2 -> Animation between two lines
+// x = 14.6 -> Time spent on a line
+**/

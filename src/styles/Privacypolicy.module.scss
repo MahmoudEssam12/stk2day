@@ -1,0 +1,22 @@
+.main {
+    background-color: #fff;
+    padding: 2rem 0;
+
+    h1 {
+        color: var(--default-color);
+    }
+
+    h4 {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+        line-height: 1.9;
+    }
+
+    section {
+        margin: 1rem 0;
+    }
+}

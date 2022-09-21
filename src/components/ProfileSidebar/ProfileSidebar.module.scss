@@ -1,0 +1,82 @@
+.profile_wrapper {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+
+    @media(max-width:768px) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main {
+        flex-grow: 1;
+    }
+
+    .sidebar {
+        .links_button {
+            background: orange;
+            border: 1px solid #ccc;
+            font-size: 1.2rem;
+            width: 100%;
+            padding: 1rem 2rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            color: #fff;
+            transition: color .3s ease;
+            display: none;
+            cursor: pointer;
+
+            &:hover {
+                color: #1E1E1E;
+            }
+        }
+
+        .links {
+            background-color: #fff8f3;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 250px;
+            max-height: auto;
+            transition: all .3s ease;
+
+            a {
+                padding: 1rem 2rem;
+                color: #455A64;
+                font-size: 1.1rem;
+                text-transform: capitalize;
+
+                &.link_active {
+                    color: #1E1E1E;
+                }
+            }
+
+            button {
+                height: 60px;
+                background-color: #A00505;
+                border: none;
+                color: #fff;
+                font-size: 1.2rem;
+                cursor: pointer;
+                text-transform: capitalize;
+            }
+
+
+
+            @media(max-width:768px) {
+                max-height: 0;
+            }
+
+            &.visible {
+                max-height: 800px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .links_button {
+                display: block;
+            }
+        }
+    }
+}

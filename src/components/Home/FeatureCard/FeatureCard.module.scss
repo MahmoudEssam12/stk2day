@@ -1,0 +1,328 @@
+.feature_card_wrapper {
+    margin: 2rem;
+
+    .card {
+        width: 240px;
+        height: 220px;
+        border: 2px solid black;
+        padding: 10px 15px;
+        position: relative;
+
+        .wrapper {
+            height: 100%;
+        }
+
+        .content {
+            border: 1px solid rgb(244, 244, 244);
+            padding: 1rem;
+            font-size: 0.9rem;
+            height: 125%;
+            background: #fff;
+            z-index: 1;
+            position: relative;
+            top: -23px;
+            box-shadow: 0 0 10px 0 #b3b3b3;
+        }
+
+        .box_shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #fea702;
+            border-radius: 20px;
+            width: 70%;
+            height: 123%;
+            margin: auto;
+        }
+
+        img {
+            width: 25%;
+            transition: all .3s linear;
+            transform: scale(0);
+            // transform: translateX(-20px);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1rem;
+
+            img {
+                width: 50%;
+                opacity: 1;
+                transform: scale(1);
+                visibility: visible;
+                display: block;
+            }
+
+            picture img {
+                width: 100%
+            }
+
+            p {
+                margin: 0;
+                transition: all .3s linear;
+                transform: translateY(20px);
+                position: absolute;
+                bottom: 0;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        // hover effect
+        &:hover {
+            // .icon {
+            //     img {
+            //         transform: translateX(20px);
+            //         opacity: 0;
+            //         visibility: hidden;
+            //     }
+
+            //     p {
+            //         opacity: 1;
+            //         visibility: visible;
+            //         transform: translateY(-20px)
+            //     }
+            // }
+
+            // img {
+            //     opacity: 1;
+            //     visibility: visible;
+            //     transform: translate(0);
+            // }
+
+            .icon {
+                img {
+                    transform: scale(0);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                p {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(-20px);
+
+                }
+            }
+
+            img {
+                transform: scale(1);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        @media(max-width:1000px) {
+            .icon {
+                img {
+                    transform: scale(0);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                p {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(-20px)
+                }
+            }
+
+            img {
+                transform: scale(1);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+    }
+
+    .card::before,
+    .card> :first-child::before {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-color: #fea702;
+        border-style: solid;
+
+    }
+
+
+    .card::before {
+        top: 0;
+        left: 0;
+        border-width: 7px 0 0 7px;
+        box-shadow: -6px 0px 0 #fea702;
+    }
+
+    .card::after,
+    .card>:first-child::after {
+        content: '';
+        position: absolute;
+    }
+
+    .card::after {
+        top: 0;
+        left: 0;
+        box-shadow: -6px -6px 0 #fea702;
+        width: 86px;
+        height: 80px;
+    }
+
+    .card>:first-child::after {
+        bottom: 0;
+        right: 0;
+        box-shadow: 7px 6px 0 #fea702;
+        height: 86px;
+        width: 87px;
+    }
+
+    .card>:first-child::before {
+        bottom: 0;
+        right: 0;
+        border-width: 0 7px 7px 0
+    }
+
+    // light-blue color for card
+    .card.light_blue {
+        .box_shadow {
+            background-color: #62cbc7;
+        }
+
+        &::before,
+        &> :first-child::before {
+            border-color: #62cbc7;
+        }
+
+        &::before {
+            box-shadow: -6px 0px 0 #62cbc7;
+        }
+
+        &::after {
+            box-shadow: -6px -6px 0 #62cbc7;
+
+        }
+
+        &>:first-child::after {
+            box-shadow: 7px 6px 0 #62cbc7;
+        }
+    }
+
+    // light-blue color for card
+    .card.dark_blue {
+        .box_shadow {
+            background-color: #0a677a;
+        }
+
+        &::before,
+        &> :first-child::before {
+            border-color: #0a677a;
+        }
+
+        &::before {
+            box-shadow: -6px 0px 0 #0a677a;
+        }
+
+        &::after {
+            box-shadow: -6px -6px 0 #0a677a;
+
+        }
+
+        &>:first-child::after {
+            box-shadow: 7px 6px 0 #0a677a;
+        }
+    }
+
+    // blue color for card
+    .card.blue {
+        .box_shadow {
+            background-color: #0d85f5;
+        }
+
+        &::before,
+        &> :first-child::before {
+            border-color: #0d85f5;
+        }
+
+        &::before {
+            box-shadow: -6px 0px 0 #0d85f5;
+        }
+
+        &::after {
+            box-shadow: -6px -6px 0 #0d85f5;
+
+        }
+
+        &>:first-child::after {
+            box-shadow: 7px 6px 0 #0d85f5;
+        }
+    }
+
+    // orange color for card
+    .card.orange {
+        .box_shadow {
+            background-color: #e44c00;
+        }
+
+        &::before,
+        &> :first-child::before {
+            border-color: #e44c00;
+        }
+
+        &::before {
+            box-shadow: -6px 0px 0 #e44c00;
+        }
+
+        &::after {
+            box-shadow: -6px -6px 0 #e44c00;
+
+        }
+
+        &>:first-child::after {
+            box-shadow: 7px 6px 0 #e44c00;
+        }
+
+
+    }
+
+    // purple color for card
+    .card.purple {
+        .box_shadow {
+            background-color: #793cd6;
+        }
+
+        &::before,
+        &> :first-child::before {
+            border-color: #793cd6;
+        }
+
+        &::before {
+            box-shadow: -6px 0px 0 #793cd6;
+        }
+
+        &::after {
+            box-shadow: -6px -6px 0 #793cd6;
+
+        }
+
+        &>:first-child::after {
+            box-shadow: 7px 6px 0 #793cd6;
+        }
+    }
+
+}

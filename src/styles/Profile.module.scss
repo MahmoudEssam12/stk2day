@@ -1,0 +1,467 @@
+.avatar_wrapper {
+    display: flex;
+    gap: 1rem;
+
+    @media(max-width:768px) {
+        flex-wrap: wrap;
+
+    }
+}
+
+.wrapper {
+    max-width: 600px;
+
+
+
+}
+
+.avatar_image>[class~="p-avatar-image"] {
+    background-color: #f6f6f6;
+
+
+    @media(max-width:768px) {
+        width: 10rem;
+        height: 10rem;
+
+        &>[class~="p-avatar-icon"] {
+
+            font-size: 3rem;
+        }
+    }
+
+}
+
+.divider {
+    margin-bottom: 1rem;
+}
+
+.avatar_image {
+    position: relative;
+
+    img {
+        object-fit: cover;
+    }
+
+    i {
+        position: absolute;
+        bottom: 20px;
+        right: 0;
+        background-color: #4a88da;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+        line-height: 30px;
+        cursor: pointer;
+    }
+
+    input {
+        display: none;
+    }
+
+    @media (max-width:768px) {
+        margin: auto;
+
+
+    }
+}
+
+.edit_btn {
+    color: #fff;
+    background-color: #e44c00;
+    padding: 0.8rem 1.9rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background .3s ease;
+    width: 255px;
+    text-transform: capitalize;
+    background-color: var(--secondary-color);
+    width: 100%;
+    padding: 1.5rem 0;
+}
+
+.calendar_input {
+    input {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    button {
+        border-radius: 8px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 8px !important;
+        border-bottom-left-radius: 8px !important;
+        background-color: #ff5702;
+        border: none;
+
+        &:hover {
+            background-color: var(--secondary-color) !important;
+        }
+    }
+
+    &.en {
+        button {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+        }
+
+        input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+    }
+
+
+}
+
+.calendar {
+    label {
+        display: block;
+        margin-bottom: 1rem;
+    }
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .input {
+        max-width: 250px;
+    }
+
+    @media (max-width:768px) {
+        justify-content: center;
+    }
+}
+
+.state_list {
+    width: 100%;
+    height: 60px;
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+
+    // input {
+
+    padding: 0.75rem !important;
+    // }
+
+    &:focus {
+        background-color: #fff;
+    }
+}
+
+.table_wrapper {
+    margin-top: 1rem;
+
+    @media(max-width:768px) {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    @media(max-width:620px) {
+        // width: 100%;
+        max-width: 400px;
+    }
+
+    @media(max-width:400px) {
+        // width: 100%;
+        max-width: 350px;
+    }
+
+}
+
+.empty_orders {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+.order_details {
+    p span {
+        color: var(--secondary-color);
+    }
+}
+
+.order_details_header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    margin-top: 1rem;
+
+}
+
+
+.order_borders {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    background-color: #fff8f3;
+    font-size: 1.2rem;
+
+    span:last-child {
+        color: var(--default-color);
+    }
+
+}
+
+.address {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    h4 {
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+    }
+
+    p {
+
+        span {
+            color: var(--default-color);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        svg {
+            color: var(--default-color);
+            display: inline-block;
+            margin: 0 8px;
+        }
+    }
+
+
+}
+
+.address_bills {
+    max-width: 600px;
+
+    h1 {
+        text-transform: capitalize;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.statistics {
+    h3 {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+    }
+
+    ul {
+        list-style: none;
+        margin: 2rem 0;
+
+        li {
+            display: inline-block;
+            font-size: 1.2rem;
+            color: #84848B;
+            transition: all .3s ease;
+            margin: 0 1rem;
+            cursor: pointer;
+
+            &.selected {
+                color: var(--secondary-color);
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+.statistics_cards_wrapper {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap
+}
+
+.table_btn {
+    background-color: #ff5702;
+    border: none;
+    text-transform: capitalize;
+
+    &:hover {
+        background-color: var(--secondary-color) !important;
+    }
+}
+
+.tableHeader {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.payments {
+    p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+
+        span {
+            color: var(--secondary-color);
+
+        }
+
+        span:first-child {
+            display: inline-block;
+            margin: 0 5px;
+
+        }
+    }
+
+    h2 {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+
+    }
+}
+
+.referralLink {
+    .inputs_wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        flex-wrap: wrap;
+
+        &>span {
+            width: 45%;
+        }
+
+        form {
+            width: 50%;
+            display: flex;
+            gap: 1rem;
+
+            @media(max-width:768px) {
+                flex-wrap: wrap;
+
+            }
+        }
+
+        @media(max-width:768px) {
+            &>span {
+                width: 100%;
+            }
+
+            form {
+                width: 100%;
+            }
+        }
+
+    }
+
+    .disabled {
+        background-color: #f6f6f6;
+    }
+
+    .links {
+        padding: 2rem;
+        border: 1px solid #ccc;
+        margin: 2rem 0;
+
+        div:first-child {
+            margin-bottom: 1rem
+        }
+
+        button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: var(--light-secondary);
+            color: var(--secondary-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:hover {
+                background-color: var(--secondary-color);
+                color: var(--light-secondary);
+            }
+        }
+
+    }
+
+    h2 {
+        color: var(--secondary-color);
+        margin: 1rem 0;
+    }
+
+    .cards {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &>p {
+        margin-top: 1rem;
+    }
+}
+
+.settings {
+
+    h1 {
+        color: var(--secondary-color);
+        margin-bottom: 2rem;
+    }
+
+    .settings_input {
+        width: 100%;
+        max-height: 60px;
+
+        ul {
+            width: 100%;
+
+            li {
+                padding: 0 !important;
+
+                input {
+                    min-height: auto;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .settings_checkbox {
+        margin: 0 5px;
+    }
+
+    .settings_inputs {
+        margin: 2rem 0;
+    }
+
+    .input_settings {
+        margin-bottom: 1rem;
+    }
+
+    @media(min-width:768px) {
+        max-width: 600px;
+        margin-right: 0;
+
+        &.en {
+            margin-left: 0;
+        }
+    }
+}

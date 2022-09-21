@@ -1,0 +1,16 @@
+.order_product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid #ccc;
+
+    .order_product_total {
+        font-size: 1.2rem;
+        color: var(--default-color);
+    }
+
+    p span {
+        color: #676767;
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "add_to_cart": "أضف الى السلة",
+  "currency": "جنيه",
+  "price": "السعر",
+  "offers": "أهم العروض",
+  "best_seller": "الأكثر مبيعا",
+  "recently_added": "المنتجات المضافة حديثًا",
+  "product_code": "كود المنتج",
+  "colors": "الألوان",
+  "material": "الخامة",
+  "sizes": "المقاسات",
+  "ratings": "التقييمات",
+  "description": "الوصف",
+  "add_to_fav": "أضف إلى المفضلة",
+  "related_products": "منتجات ذات صلة",
+  "send_btn": "إرسال",
+  "message_success_summary": "تم الإضافة إلى المفضلة",
+  "message_error_summary": "خطأ",
+  "message_info_summary": "تم حذف المنتج",
+  "message_success_detail": "تم إضافة المنتج بنجاح إلى قائمة المفضلة",
+  "message_error_detail": "لا يمكنك أن تضيف نفس المنتج مرتين الى المفضلة",
+  "message_info_detail": "تم حذف المنتج من بنجاح من قائمة المفضلة"
+}

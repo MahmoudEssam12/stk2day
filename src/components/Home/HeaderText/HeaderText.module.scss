@@ -1,0 +1,21 @@
+.header_text {
+    text-align: center;
+    margin: 2rem 0;
+
+    .sub_header {
+        color: var(--grey-color);
+    }
+
+    .main_header {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        color: var(--default-color);
+    }
+
+    img {
+        width: 130px;
+        height: 11px;
+    }
+
+}

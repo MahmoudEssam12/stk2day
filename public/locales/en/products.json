@@ -1,0 +1,23 @@
+{
+  "add_to_cart": "Add to bag",
+  "currency": "pound",
+  "price": "price",
+  "offers": "Best Offers",
+  "best_seller": "Best Seller",
+  "recently_added": "Recently Added",
+  "product_code": "product code",
+  "colors": "colors",
+  "material": "material",
+  "sizes": "sizes",
+  "ratings": "rating",
+  "description": "description",
+  "add_to_fav": "Add to Favourits",
+  "related_products": "Related Products",
+  "send_btn": "send",
+  "message_success_summary": "Added to Favourits",
+  "message_error_summary": "Error",
+  "message_info_summary": "Product removed",
+  "message_success_detail": "The product was successfully added to Favourites list.",
+  "message_error_detail": "You can't add the same product to Favourits twice",
+  "message_info_detail": "The product was successfully removed from Favourits list."
+}

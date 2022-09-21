@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background-color: #FCFAFA;
+    margin: 4rem 0;
+
+    .col {
+        min-width: 35%;
+    }
+
+    .col:last-child {
+        min-width: 65%;
+    }
+
+    .col:first-child {
+        padding: 2rem 0 2rem 1rem;
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+        color: #1E1E1E;
+        text-transform: capitalize;
+
+    }
+
+    p {
+        color: #455A64;
+        font-size: 1.1rem;
+        line-height: 40px;
+    }
+
+    @media(max-width:768px) {
+        flex-wrap: wrap;
+
+        .col {
+            width: 100%;
+        }
+    }
+}

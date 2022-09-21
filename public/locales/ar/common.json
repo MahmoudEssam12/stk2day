@@ -1,0 +1,16 @@
+{
+  "email_validation": "البريد الالكتروني مطلوب",
+  "password_validation": "كلمة المرور مطلوبة",
+  "search_btn": "بحث",
+  "search_txt": "مالذي تبحث عنه؟",
+  "no_products": "لا توجد منتجات تتوافق مع بحثك.",
+  "general_validation": "هذا الحقل مطلوب!",
+  "name": "الإسم",
+  "country": "الدولة",
+  "gov": "المحافظة",
+  "phonenumber": "رقم الهاتف",
+  "zipcode": "الرقم البريدي",
+  "companyname": "إسم الشركة",
+  "edit": "تعديل",
+  "save": "حفظ"
+}

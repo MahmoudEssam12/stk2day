@@ -1,0 +1,92 @@
+.img_wrapper {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.product_card {
+    padding: 1rem;
+    border: 1px solid rgba(186, 186, 186, 0.37);
+    border-radius: 8px;
+    position: relative;
+
+    h4 {
+        margin: 0.5rem 0;
+
+        a {
+
+            color: var(--default-color);
+        }
+    }
+
+    a {
+        color: var(--secondary-color);
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .card_footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+
+        span {
+            color: #BABABA;
+        }
+
+        p {
+            margin-top: 0.5rem;
+
+        }
+
+        button {
+            padding: 0.2rem 0.5rem;
+            background-color: #fff;
+            border: 1px solid rgba(186, 186, 186, 0.37);
+            color: var(--default-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s ease;
+            position: relative;
+            overflow: hidden;
+
+            &:hover {
+                background-color: var(--secondary-color);
+                color: #fff;
+
+            }
+
+        }
+    }
+
+    .heart {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #ffd7d8;
+        color: #fff4ef;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all .3s ease;
+
+        .liked {
+            color: #ff6c72;
+        }
+
+        &:hover {
+            color: #ff6c72;
+        }
+    }
+
+    .faved {
+        color: #ff6c72;
+
+    }
+}

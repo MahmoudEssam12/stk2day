@@ -1,0 +1,14 @@
+{
+  "cart_title": "الطلبات",
+  "cart_total": "المجموع",
+  "delivery_cost": "تكلفة التوصيل",
+  "voucher": "قسيمة شراء",
+  "add_code_btn": "إضافة الكود",
+  "delivery_date": "يوم التوصيل",
+  "continue": "إستمرار",
+  "shipping_address": "عنوان الشحن",
+  "bill_address": "عنوان الفاتورة",
+  "confirm": "تأكيد الطلب",
+  "remove_confirmation_header": "تأكيد",
+  "remove_confirmation_body": "هل أنت متأكد أنك تريد إزالة هذا المنتج من سلة التسوق؟"
+}

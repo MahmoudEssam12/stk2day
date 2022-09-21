@@ -1,0 +1,95 @@
+.products {
+    padding: 2rem 0;
+}
+
+.search_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .input_search {
+        margin: 0;
+
+        input {
+
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+
+        }
+
+        &.ar input {
+            border-radius: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+
+        }
+    }
+
+    button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 60px;
+
+
+
+        @media(max-width:768px) {
+            max-width: 100px;
+        }
+
+    }
+
+    .ar button {
+        border-radius: 0;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+
+    }
+}
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    @media (max-width:768px) {
+        justify-content: center;
+    }
+}
+
+.row {
+    margin: 2rem 0;
+
+    h3 {
+        margin: 1rem 0;
+    }
+}
+
+.products_row {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+    padding: 1rem;
+    gap: 1rem;
+
+
+    // @media(min-width:768px) {
+
+ //     /* Hide scrollbar for Chrome, Safari and Opera */
+ //     &.hide_scroll::-webkit-scrollbar {
+ //         display: none;
+ //     }
+
+ //     /* Hide scrollbar for IE, Edge and Firefox */
+ //     &.hide_scroll {
+ //         -ms-overflow-style: none;
+ //         /* IE and Edge */
+ //         scrollbar-width: none;
+ //         /* Firefox */
+ //     }
+ // }
+}

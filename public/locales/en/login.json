@@ -1,0 +1,17 @@
+{
+  "code_entering": "Enter the code",
+  "code_entering_info": "Please the code for your account that was sent to you on your account to recover the password.",
+  "email": "Enter your Email or Mobile number",
+  "forget": "forgot password?",
+  "info": "Follow the instructions to make the registration process easier and you'll also be able to explore what's inside.",
+  "password": "password",
+  "restore_email": "your email",
+  "restore_info": "Please enter your account email and we will send you a code to recover your password.",
+  "restore_msg": "We sent verification code to your email ",
+  "restore_password_title": "Restore password",
+  "send_code": "Send Code",
+  "title": "login",
+  "confirm_password": "confirm password",
+  "submit": "submit",
+  "change_password_info": "Please choose a new password and confirm it to go back to your account and enjoy the services"
+}

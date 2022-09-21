@@ -1,0 +1,23 @@
+.code_inputs {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    direction: ltr;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    input {
+        max-width: 75px;
+        height: 75px;
+        background-color: #f6f6f6;
+        text-align: center;
+        font-size: 1.3rem;
+        border: none;
+        color: #03014C;
+
+        &:focus {
+            background-color: #fff;
+        }
+    }
+}

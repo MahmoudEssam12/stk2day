@@ -1,0 +1,73 @@
+.input_wrapper {
+    display: block;
+    margin-bottom: 2rem;
+    width: 100%;
+    // background-color: #f6f6f6;
+
+    input,
+    textarea {
+        width: 100%;
+        background-color: #f6f6f6;
+        min-height: 60px;
+        font-size: 1.1rem;
+        padding: 0.75rem 2.7rem !important;
+
+    }
+
+    input:focus {
+        background-color: #fff;
+    }
+
+    textarea {
+        min-height: 200px;
+    }
+
+    textarea~label {
+        top: 28px;
+    }
+
+
+    label {
+        text-transform: capitalize;
+        right: 40px;
+        top: 28px;
+        color: #03014C;
+        text-transform: capitalize;
+
+        @media(max-width:768px) {
+            font-size: 0.9rem;
+        }
+    }
+
+    .inputIcons {
+        position: absolute;
+        top: 22px;
+        right: 14px;
+        left: unset;
+        z-index: 1;
+        cursor: auto;
+        pointer-events: none;
+        width: 20px;
+        height: 20px;
+        color: var(--default-color) !important;
+
+        &.icon_en {
+            right: unset;
+            left: 19px;
+            top: 28px;
+        }
+    }
+
+
+}
+
+.form_styles {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .input_wrapper>label {
+        left: 2.8rem;
+    }
+}

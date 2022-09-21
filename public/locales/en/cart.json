@@ -1,0 +1,14 @@
+{
+  "cart_title": "orders",
+  "cart_total": "total",
+  "delivery_cost": "delivery cost",
+  "voucher": "voucher",
+  "add_code_btn": "add code",
+  "delivery_date": "delivery date",
+  "continue": "continue",
+  "shipping_address": "shipping address",
+  "bill_address": "bill address",
+  "confirm": "confirm order",
+  "remove_confirmation_header": "Confirmation",
+  "remove_confirmation_body": "Are you sure you want to remove this product from cart ? "
+}

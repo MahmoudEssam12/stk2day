@@ -1,0 +1,81 @@
+.grid_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/login-bg.png");
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .very_light_blue {
+        background-color: #ecfcff;
+    }
+
+    .middle {
+        background-color: #e86f32;
+        grid-row: span 2;
+    }
+
+    .off_white {
+        background-color: #f5ffea;
+    }
+
+    .light_blue {
+        background-color: #b9dbef
+    }
+
+    .skin_color {
+        background-color: #ffe9be;
+    }
+
+    .product {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+}
+
+.products_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1rem;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+
+
+
+
+}
+
+@media(max-width:900px) {
+    .products_wrapper {
+        margin: 0 1rem;
+    }
+}
+
+@media(max-width:768px) {
+    .products_wrapper {
+        grid-template-columns: repeat(2, 1fr);
+
+        .product:last-child {
+            grid-column: span 1;
+            grid-row-start: auto;
+            grid-row-end: auto;
+        }
+    }
+}
+
+@media(max-width:576px) {
+    .products_wrapper {
+        grid-template-columns: repeat(1, 1fr);
+
+        .product:first-child {
+            grid-column: auto;
+        }
+    }
+}
