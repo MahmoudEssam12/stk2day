@@ -30,7 +30,6 @@ function Cart() {
   const [step, setStep] = useState(1);
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
-  const [qty, setQty] = useState(0);
   const handleChange = (e) => {
     setVoucherValue(e.target.value);
   };
@@ -93,7 +92,6 @@ function Cart() {
                   price={item.price}
                   img={item.img}
                   quantity={item.quantity}
-                  setQty={setQty}
                 />
               ))}
 

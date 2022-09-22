@@ -19,23 +19,14 @@ function CartItem({ img, id, name, merchant, rating, price, quantity }) {
   const disptach = useDispatch();
   const cartItems = useSelector(selectCartItem);
   const { t } = useTranslation();
-
-  const accept = () => {
+  const [visible, setVisible] = useState(false);
+  const accept = (e) => {
     disptach(removeCartItem(id));
   };
 
   const reject = () => {};
   // function to delete the cartitem from cart when quantity is 0
 
-  const confirm = () => {
-    confirmDialog({
-      message: t("cart:remove_confirmation_body"),
-      header: t("cart:remove_confirmation_header"),
-      icon: "pi pi-exclamation-triangle",
-      accept,
-      reject,
-    });
-  };
   const getQuantity = () => {
     let product = cartItems.find((item) => item.id === id);
     setQty(product.quantity);
@@ -49,13 +40,13 @@ function CartItem({ img, id, name, merchant, rating, price, quantity }) {
     if (qty > 1) {
       disptach(quantityHandler({ type: "remove", id }));
     } else {
-      confirm();
+      setVisible(true);
     }
   };
 
   // handle delete cart item button
   const handleRemove = () => {
-    confirm();
+    setVisible(true);
   };
   useEffect(() => {
     getQuantity();
@@ -63,7 +54,16 @@ function CartItem({ img, id, name, merchant, rating, price, quantity }) {
   }, [cartItems]);
   return (
     <div className={styles.cart_item}>
-      <ConfirmDialog />
+      {/* <ConfirmDialog /> */}
+      <ConfirmDialog
+        visible={visible}
+        onHide={() => setVisible(false)}
+        message={t("cart:remove_confirmation_body")}
+        header={t("cart:remove_confirmation_header")}
+        icon="pi pi-exclamation-triangle"
+        accept={accept}
+        reject={reject}
+      />
       <div className={styles.col}>
         <div className={styles.img}>
           <picture>
