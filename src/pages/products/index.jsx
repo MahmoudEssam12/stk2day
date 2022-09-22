@@ -74,10 +74,14 @@ function Products() {
         </div>
       </form>
       <div className={styles.categories}>
-        <CategoryCard img="accessories" text={t("categories:accessories")} />
-        <CategoryCard img="women" text={t("categories:women")} />
-        <CategoryCard img="men" text={t("categories:men")} />
-        <CategoryCard img="kids" text={t("categories:kids")} />
+        <CategoryCard
+          img="accessories"
+          text={t("categories:accessories")}
+          link="accessories"
+        />
+        <CategoryCard img="women" text={t("categories:women")} link="women" />
+        <CategoryCard img="men" text={t("categories:men")} link="men" />
+        <CategoryCard img="kids" text={t("categories:kids")} link="kids" />
       </div>
       <ProductsRow title={t("products:offers")} />
       <ProductsRow title={t("products:best_seller")} />

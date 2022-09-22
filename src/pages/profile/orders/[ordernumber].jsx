@@ -13,7 +13,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import OrderProduct from "../../../components/OrderProduct/OrderProduct";
 export async function getStaticPaths() {
   return {
-    paths: ["/profile/orders/[ordernumber]"],
+    paths: [
+      { params: { ordernumber: "1" } },
+      { params: { ordernumber: "2" } },
+      { params: { ordernumber: "3" } },
+      { params: { ordernumber: "4" } },
+    ],
     fallback: true,
   };
 }
@@ -39,7 +44,9 @@ function OrderNumber() {
     <section className={styles.order_details}>
       <Head>
         <title>
-          {router.locale === "en" ? "stk2day" : "ستوك تو داي "}- {ordernumber}
+          {router.locale === "en"
+            ? `stk2day - ${ordernumber}`
+            : `ستوك تو داي- ${ordernumber}`}
         </title>
       </Head>
       <p style={{ marginBottom: "2rem" }}>

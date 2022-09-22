@@ -15,7 +15,10 @@ import styles from "../../../styles/Profile.module.scss";
 import governorates from "./../../../../public/static/eg-governorates.json";
 export async function getStaticPaths() {
   return {
-    paths: ["/profile/address/[address]"],
+    paths: [
+      { params: { address: "shippingaddress" } },
+      { params: { address: "billingaddress" } },
+    ],
     fallback: true,
   };
 }

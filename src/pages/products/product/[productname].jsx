@@ -26,7 +26,7 @@ import { useAddToFavs } from "../../../utilities/useAddToFavs";
 export async function getStaticPaths() {
   return {
     paths: ["/products/product/[productname]"],
-    fallback: true,
+    fallback: false,
   };
 }
 export async function getStaticProps({ locale }) {

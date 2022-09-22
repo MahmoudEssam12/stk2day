@@ -8,110 +8,8 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { CSVLink } from "react-csv";
 import styles from "../../styles/Profile.module.scss";
-const data = [
-  {
-    id: 1,
-    orderNumber: "3037",
-    date: "9/10/2022",
-    status: "qulaified",
-    productsCount: 4,
-    products: [
-      {
-        id: 5,
-        name: "شورت بحر وتر بروف",
-        count: 2,
-        price: 100,
-        total_price: 200,
-        commission: 50,
-      },
-      {
-        id: 6,
-        name: "شورت بحر ",
-        count: 1,
-        price: 100,
-        total_price: 100,
-        commission: 50,
-      },
-    ],
-  },
-  {
-    id: 2,
-    orderNumber: "3047",
-    status: "rejected",
-    productsCount: 1,
-    date: "20/01/2022",
-    products: [
-      {
-        id: 6,
-        name: "شورت بحر ",
-        count: 1,
-        price: 100,
-        total_price: 100,
-        commission: 50,
-      },
-    ],
-  },
-  {
-    id: 3,
 
-    orderNumber: "3057",
-    status: "shupped",
-    productsCount: 2,
-    date: "6/10/2022",
-    products: [
-      {
-        id: 5,
-        name: "شورت بحر وتر بروف",
-        count: 2,
-        price: 100,
-        total_price: 200,
-        commission: 50,
-      },
-      {
-        id: 6,
-        name: "شورت بحر ",
-        count: 1,
-        price: 100,
-        total_price: 100,
-        commission: 50,
-      },
-      {
-        id: 7,
-        name: "شورت  ",
-        count: 3,
-        price: 100,
-        total_price: 300,
-        commission: 50,
-      },
-    ],
-  },
-  {
-    id: 4,
-    orderNumber: "3077",
-    status: "qulaified",
-    productsCount: 10,
-    date: "1/10/2022",
-    products: [
-      {
-        id: 5,
-        name: "شورت بحر وتر بروف",
-        count: 2,
-        price: 100,
-        total_price: 200,
-        commission: 50,
-      },
-      {
-        id: 6,
-        name: "شورت بحر ",
-        count: 1,
-        price: 100,
-        total_price: 100,
-        commission: 50,
-      },
-    ],
-  },
-];
-function ProfileTable() {
+function ProfileTable({ data }) {
   const { t } = useTranslation();
   const router = useRouter();
   const [customers, setCustomers] = useState([...data]);
@@ -183,7 +81,7 @@ function ProfileTable() {
     return (
       <Button
         type="button"
-        onClick={() => router.push(`/profile/orders/${order.orderNumber}`)}
+        onClick={() => router.push(`/profile/orders/${order.id}`)}
         className={styles.table_btn}
       >
         {t("profile:order_details")}
@@ -223,7 +121,6 @@ function ProfileTable() {
         rowHover
         expandedRows={expandedRows}
         onRowToggle={(e) => {
-          console.log(e);
           setExpandedRows(e.data);
         }}
         rowExpansionTemplate={rowExpansionTemplate}

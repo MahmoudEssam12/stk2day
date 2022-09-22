@@ -75,9 +75,7 @@ function Address() {
             color: "black",
             width: "125px",
           }}
-          click={() =>
-            router.push(`/profile/address/${t("profile:shipping_address")}`)
-          }
+          click={() => router.push(`/profile/address/shippingaddress`)}
         />
       </div>
       <div>
@@ -98,9 +96,7 @@ function Address() {
             color: "black",
             width: "125px",
           }}
-          click={() =>
-            router.push(`/profile/address/${t("profile:billing_address")}`)
-          }
+          click={() => router.push(`/profile/address/billingaddress`)}
         />
       </div>
     </div>

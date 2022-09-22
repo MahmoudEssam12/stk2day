@@ -4,9 +4,10 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   compiler: {
-    styledComponents: true
+    styledComponents: false
   },
-  i18n
+  i18n,
+
 }
 
 module.exports = nextConfig

@@ -10,13 +10,12 @@ import { MainLayout } from "../layout/mainLayout";
 import styles from "../styles/Contactus.module.scss";
 import inputStyles from "../styles/Inputs.module.scss";
 import { useRouter } from "next/router";
-import Head from "next/head";
 import { motion } from "framer-motion";
 import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$/;
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, [

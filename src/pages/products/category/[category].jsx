@@ -16,9 +16,15 @@ import { Checkbox } from "primereact/checkbox";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "primereact/inputnumber";
+
 export async function getStaticPaths() {
   return {
-    paths: ["/products/categories/[category]"],
+    paths: [
+      { params: { category: "men" } },
+      { params: { category: "accessories" } },
+      { params: { category: "women" } },
+      { params: { category: "kids" } },
+    ],
     fallback: true,
   };
 }
@@ -43,10 +49,10 @@ function Category() {
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [ratings, setRatings] = useState([]);
   const [categories, setCategories] = useState([
-    t("categories:men"),
-    t("categories:women"),
-    t("categories:kids"),
-    t("categories:accessories"),
+    { name: t("categories:men"), link: "men" },
+    { name: t("categories:women"), link: "women" },
+    { name: t("categories:kids"), link: "kids" },
+    { name: t("categories:accessories"), link: "accessories" },
   ]);
   const [products, setProducts] = useState([
     {
@@ -260,12 +266,12 @@ function Category() {
             <ul className={styles.categories_ul}>
               {categories.map((cate) => (
                 <li
-                  key={cate}
-                  className={category === cate ? styles.active : " "}
+                  key={cate.name}
+                  className={category === cate.link ? styles.active : " "}
                 >
-                  <Link href={`/products/categories/${cate}`} passHref>
+                  <Link href={`/products/category/${cate.link}`} passHref>
                     <a>
-                      {cate} <span>300</span>
+                      {cate.name} <span>300</span>
                     </a>
                   </Link>
                 </li>

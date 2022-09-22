@@ -1,1 +1,11 @@
-{"msg":"message","info":"Fill in the data and our team will respond to you with continuous service for 24 hours","email":"E-mail","title":"Contact Information","send_btn":"Send","username":"username","msg_validation":"You can't send empty message","email_validation":"E-mail is required","username_validation":"username is required"}
+{
+  "msg": "message",
+  "info": "Fill in the data and our team will respond to you with continuous service for 24 hours",
+  "email": "E-mail",
+  "title": "Contact Information",
+  "send_btn": "Send",
+  "username": "username",
+  "msg_validation": "You can't send empty message",
+  "email_validation": "E-mail is required",
+  "username_validation": "username is required"
+}
