@@ -20,4 +20,11 @@
             background-color: #fff;
         }
     }
+
+    @media(max-width:1200px) {
+        .input_wrapper {
+            width: calc(100%/4);
+        }
+    }
+
 }

@@ -11,6 +11,8 @@ import { Avatar } from "primereact/avatar";
 import { useTranslation } from "next-i18next";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import inputStyles from "../../styles/Inputs.module.scss";
+import { Password } from "primereact/password";
+import passwordStyles from "../../styles/Login.module.scss";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -28,15 +30,32 @@ export async function getStaticProps({ locale }) {
 
 const emailRegex =
   /(?:\d{11}|^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$)/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 const validationSchema = yup.object({
   email: yup
     .string("")
     .matches(emailRegex, "أدخل إيميل أو رقم الهاتف الخاص بك بشكل صحيح")
     .required("يجب إدخال الإيميل أو رقم الهاتف"),
-  password: yup.string("").required("يجب إدخال كلمة المرور!"),
+  password: yup.string(""),
   username: yup.string("").required("لايمكن ان تترك اسم المستخدمم فارغ"),
   name: yup.string("").required("لايمكن ان تترك الإسم فارغ"),
   mobileNumber: yup.string("").required("لايمكن ان تترك الرقم فارغ"),
+  newPassword: yup
+    .string("")
+    .matches(
+      passwordRegex,
+      "كلمة المرور يجب انت تتكون من حرف كبير و صغير و رقم ولا تقل عن 8 احرف"
+    ),
+  confirmNewPassword: yup.string("").when("newPassword", {
+    is: (val) => (val && val.length > 0 ? true : false),
+    then: yup
+      .string("")
+      .oneOf(
+        [yup.ref("newPassword")],
+        "you should enter the new password again"
+      )
+      .required("you should enter the new password again"),
+  }),
 });
 
 function Profile() {
@@ -196,7 +215,7 @@ function Profile() {
           <span
             className={`p-float-label ${
               router.locale === "en" && "p-input-icon-left"
-            } ${inputStyles.input_wrapper} ${styles.input}`}
+            } ${inputStyles.input_wrapper} ${styles.input} `}
           >
             <i
               className={`pi pi-envelope ${inputStyles.inputIcons} ${
@@ -228,22 +247,29 @@ function Profile() {
           <span
             className={`p-float-label ${
               router.locale === "en" && "p-input-icon-left"
-            } ${inputStyles.input_wrapper} ${styles.input}`}
+            } ${inputStyles.input_wrapper} ${styles.input}  ${
+              !edit && styles.disabled_input
+            }`}
           >
             <i
-              className={`pi pi-envelope ${inputStyles.inputIcons} ${
+              className={`pi pi-lock ${inputStyles.inputIcons} ${
                 router.locale === "en" ? inputStyles.icon_en : ""
               }`}
             ></i>
-            <InputText
+            <Password
               value={formik.values.password}
               onChange={formik.handleChange}
               name="password"
               id="password"
-              className={
+              className={`${
                 formik.errors.password && formik.touched.password && "p-invalid"
               }
+                ${router.locale !== "en" ? styles.password_ar : ""}
+                `}
+              style={{ width: "100%" }}
               disabled={edit ? false : true}
+              toggleMask
+              feedback={false}
             />
             <label htmlFor="email">{t("profile:password_label")}</label>
 
@@ -258,24 +284,30 @@ function Profile() {
           <span
             className={`p-float-label ${
               router.locale === "en" && "p-input-icon-left"
-            } ${inputStyles.input_wrapper} ${styles.input}`}
+            } ${inputStyles.input_wrapper} ${styles.input} ${
+              !edit && styles.disabled_input
+            }`}
           >
             <i
-              className={`pi pi-envelope ${inputStyles.inputIcons} ${
+              className={`pi pi-lock ${inputStyles.inputIcons} ${
                 router.locale === "en" ? inputStyles.icon_en : ""
               }`}
             ></i>
-            <InputText
+            <Password
               value={formik.values.newPassword}
               onChange={formik.handleChange}
               name="newPassword"
               id="newPassword"
-              className={
+              className={`${
                 formik.errors.newPassword &&
                 formik.touched.newPassword &&
                 "p-invalid"
               }
+                ${router.locale !== "en" ? styles.password_ar : ""}
+                `}
               disabled={edit ? false : true}
+              style={{ width: "100%" }}
+              toggleMask
             />
             <label htmlFor="newPassword">{t("profile:new_password")}</label>
 
@@ -290,24 +322,31 @@ function Profile() {
           <span
             className={`p-float-label ${
               router.locale === "en" && "p-input-icon-left"
-            } ${inputStyles.input_wrapper} ${styles.input}`}
+            } ${inputStyles.input_wrapper} ${styles.input}  ${
+              !edit && styles.disabled_input
+            }`}
           >
             <i
-              className={`pi pi-envelope ${inputStyles.inputIcons} ${
+              className={`pi pi-lock ${inputStyles.inputIcons} ${
                 router.locale === "en" ? inputStyles.icon_en : ""
               }`}
             ></i>
-            <InputText
+            <Password
               value={formik.values.confirmNewPassword}
               onChange={formik.handleChange}
               name="confirmNewPassword"
               id="confirmNewPassword"
-              className={
+              className={`${
                 formik.errors.confirmNewPassword &&
                 formik.touched.confirmNewPassword &&
                 "p-invalid"
               }
+                ${router.locale !== "en" ? styles.password_ar : ""}
+                `}
               disabled={edit ? false : true}
+              style={{ width: "100%" }}
+              toggleMask
+              feedback={false}
             />
             <label htmlFor="confirmNewPassword">
               {t("profile:confirm_password")}

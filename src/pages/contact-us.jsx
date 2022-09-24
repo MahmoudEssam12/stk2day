@@ -15,14 +15,14 @@ import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$/;
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, [
-        "contactus",
-        "footer",
         "navbar",
         "common",
+        "contactus",
+        "footer",
       ])),
     },
   };
@@ -51,9 +51,9 @@ function ContactUs() {
   });
   return (
     <motion.div
-      exit={{ opacity: 0, y: 100 }}
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className={`c-container ${styles.contactus}`}
     >
       <section className={styles.col}>

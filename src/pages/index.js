@@ -18,7 +18,9 @@ export default function Home() {
   // const {t} = useTranslation();
   const router = useRouter()
   return (
-    <motion.div exit={{ opacity: 0, y: 100 }} initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }}>
+    <motion.div
+      exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+    >
       <Head>
         <title>
           {router.locale === "en" ? `Stk2day` : `ستوك تو داي `}

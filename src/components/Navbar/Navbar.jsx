@@ -55,7 +55,7 @@ function Navbar({}) {
   function toggleNavMenu() {
     setNavListState((prev) => !prev);
     menuTl.reversed(!menuTl.reversed());
-    // controle active state for navlinks
+    // control active state for navlinks
     // hide navbar after navigating to anothor page
   }
 
@@ -92,7 +92,14 @@ function Navbar({}) {
     if (localStorage.getItem("lang")) {
       const language = JSON.parse(localStorage.getItem("lang"));
       setLang(language);
-      router.push(router.asPath, router.asPath, { locale: language.code });
+      console.log(router);
+      if (Object.keys(router.components)[0] === "/404") {
+        console.log("true", Object.keys(router.components));
+        router.push(router.asPath, "/404", { locale: language.code });
+      } else {
+        // find a way to detect if the page is 404
+        router.push(router.asPath, router.asPath, { locale: language.code });
+      }
     }
     if (localStorage.getItem("region")) {
       dispatch(setRegion(JSON.parse(localStorage.getItem("region"))));
@@ -155,7 +162,7 @@ function Navbar({}) {
           <span ref={bottom}></span>
         </div>
         <Link href="/">
-          <picture style={{ cursor: "pointer" }}>
+          <picture style={{ cursor: "pointer" }} className={style.pic}>
             <img src="/images/logo.png" alt="stk2day logo - ستوك تو جاي لوجو" />
           </picture>
         </Link>
@@ -199,7 +206,7 @@ function Navbar({}) {
               ></i>
             </Link>
             <Link href="/cart">
-              <picture style={{ cursor: "pointer" }}>
+              <picture style={{ cursor: "pointer" }} className={style.pic}>
                 <img
                   src="/images/cart-sm.png"
                   onClick={handleClose}
@@ -219,7 +226,7 @@ function Navbar({}) {
                 placeholder="Select Language"
                 valueTemplate={selectedTemplate}
                 itemTemplate={optionTemplate}
-                style={{ width: "100px", height: "55px" }}
+                style={{ width: "84px", height: "55px" }}
                 className={style.first_dropdown}
               />
 
@@ -231,7 +238,7 @@ function Navbar({}) {
                 placeholder="Select Region"
                 valueTemplate={selectedTemplate}
                 itemTemplate={optionTemplate}
-                style={{ width: "100px", height: "55px" }}
+                style={{ width: "84px", height: "55px" }}
               />
             </div>
           </div>

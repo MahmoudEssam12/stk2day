@@ -41,18 +41,19 @@ function VerificationInput({ length, label, loading, onComplete }) {
       <div className={styles.code_inputs}>
         {code.map((num, idx) => {
           return (
-            <InputText
-              key={idx}
-              type="text"
-              inputMode="numeric"
-              maxLength={1}
-              value={num}
-              autoFocus={!code[0].length && idx === 0}
-              readOnly={loading}
-              onChange={(e) => processInput(e, idx)}
-              onKeyUp={(e) => onKeyUp(e, idx)}
-              ref={(ref) => inputs.current.push(ref)}
-            />
+            <div key={idx} className={styles.input_wrapper}>
+              <InputText
+                type="text"
+                inputMode="numeric"
+                maxLength={1}
+                value={num}
+                autoFocus={!code[0].length && idx === 0}
+                readOnly={loading}
+                onChange={(e) => processInput(e, idx)}
+                onKeyUp={(e) => onKeyUp(e, idx)}
+                ref={(ref) => inputs.current.push(ref)}
+              />
+            </div>
           );
         })}
       </div>

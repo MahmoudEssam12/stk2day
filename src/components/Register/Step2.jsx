@@ -78,23 +78,33 @@ function Step2() {
         >
           <i
             className={`pi pi-question ${styles.inputIcons} ${
-              formik.errors.webisteLink && styles.invalid_color
+              formik.errors.webisteLink &&
+              formik.touched.webisteLink &&
+              styles.invalid_color
             } ${router.locale === "en" ? styles.icon_en : ""}`}
           ></i>
           <InputText
             value={formik.values.webisteLink}
             onChange={formik.handleChange}
             name="webisteLink"
-            className={formik.errors.webisteLink && "p-invalid"}
+            className={
+              formik.errors.webisteLink &&
+              formik.touched.webisteLink &&
+              "p-invalid"
+            }
           />
           <label
             htmlFor="webisteLink"
-            className={formik.errors.webisteLink && styles.invalid_color}
+            className={
+              formik.errors.webisteLink &&
+              formik.touched.webisteLink &&
+              styles.invalid_color
+            }
           >
             {t("register:register_link")}
           </label>
 
-          {formik.errors.webisteLink && (
+          {formik.errors.webisteLink && formik.touched.webisteLink && (
             <small id="webisteLink-help" className="p-error block">
               {formik.errors.webisteLink}
             </small>
@@ -108,23 +118,31 @@ function Step2() {
         >
           <i
             className={`pi pi-question ${styles.inputIcons} ${
-              formik.errors.method && styles.invalid_color
+              formik.errors.method &&
+              formik.touched.method &&
+              styles.invalid_color
             } ${router.locale === "en" ? styles.icon_en : ""}`}
           ></i>
           <InputText
             value={formik.values.method}
             onChange={formik.handleChange}
             name="method"
-            className={formik.errors.method && "p-invalid"}
+            className={
+              formik.errors.method && formik.touched.method && "p-invalid"
+            }
           />
           <label
             htmlFor="method"
-            className={formik.errors.method && styles.invalid_color}
+            className={
+              formik.errors.method &&
+              formik.touched.method &&
+              styles.invalid_color
+            }
           >
             {t("register:register_promote")}
           </label>
 
-          {formik.errors.method && (
+          {formik.errors.method && formik.touched.method && (
             <small id="method-help" className="p-error block">
               {formik.errors.method}
             </small>
@@ -154,7 +172,7 @@ function Step2() {
                 <label
                   htmlFor={option.value}
                   className={
-                    formik.errors.foundusfrom
+                    formik.errors.foundusfrom && formik.touched.foundusfrom
                       ? registerStyles.invalid_border
                       : " "
                   }
@@ -170,7 +188,7 @@ function Step2() {
               </div>
             ))}
           </div>
-          {formik.errors.foundusfrom && (
+          {formik.errors.foundusfrom && formik.touched.foundusfrom && (
             <small id="method-help" className="p-error block">
               {formik.errors.foundusfrom}
             </small>
@@ -188,7 +206,7 @@ function Step2() {
             }}
           />
           <label htmlFor="binary">{t("register:register_terms")}</label>
-          {formik.errors.conditions && (
+          {formik.errors.conditions && formik.touched.conditions && (
             <small
               id="method-help"
               className="p-error block"
