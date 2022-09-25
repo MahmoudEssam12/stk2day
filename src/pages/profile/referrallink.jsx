@@ -83,7 +83,7 @@ function ReferralLink() {
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className={`c-container ${styles.referralLink}`}
+      className={` ${styles.referralLink}`}
     >
       <Toast ref={toaster} position="bottom-left" />
       <div className={styles.inputs_wrapper}>

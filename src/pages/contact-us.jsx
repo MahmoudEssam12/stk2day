@@ -51,149 +51,222 @@ function ContactUs() {
   });
   return (
     <motion.div
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className={`c-container ${styles.contactus}`}
+      exit={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={`c-container ${"contactus"}`}
     >
-      <section className={styles.col}>
-        <form
-          onSubmit={formik.handleSubmit}
-          className={inputStyles.form_styles}
-        >
-          <span
-            className={`p-float-label  ${
-              router.locale === "en" && "p-input-icon-left"
-            } ${inputStyles.input_wrapper}`}
+      <div className="contactus">
+        <section className={"col"}>
+          <form
+            onSubmit={formik.handleSubmit}
+            className={inputStyles.form_styles}
           >
-            <i
-              className={`pi pi-user ${inputStyles.inputIcons} ${
-                router.locale === "en" ? inputStyles.icon_en : ""
-              }`}
-            ></i>
-            <InputText
-              id="username"
-              name="username"
-              value={formik.values.username}
-              onChange={formik.handleChange}
-            />
-            <label htmlFor="username">{t("contactus:username")}</label>
-            {formik.errors.username && formik.touched.username && (
-              <small id="username-help" className="p-error block">
-                {formik.errors.username}
-              </small>
-            )}
-          </span>
-          <span
-            className={`p-float-label ${
-              router.locale === "en" && "p-input-icon-left"
-            } ${inputStyles.input_wrapper}`}
-          >
-            <i
-              className={`pi pi-envelope ${inputStyles.inputIcons} ${
-                router.locale === "en" ? inputStyles.icon_en : ""
-              }`}
-            ></i>
-            <InputText
-              id="email"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-            />
-            <label htmlFor="email">{t("contactus:email")}</label>
-            {formik.errors.email && formik.touched.email && (
-              <small id="email-help" className="p-error block">
-                {formik.errors.email}
-              </small>
-            )}
-          </span>
-          <span
-            className={`p-float-label ${
-              router.locale === "en" && "p-input-icon-left"
-            } ${inputStyles.input_wrapper}`}
-          >
-            <FontAwesomeIcon
-              icon={faCommentDots}
-              className={`${inputStyles.inputIcons} ${
-                router.locale === "en" ? inputStyles.icon_en : ""
-              }`}
-            />
-            {/* <i
+            <span
+              className={`p-float-label  ${
+                router.locale === "en" && "p-input-icon-left"
+              } ${inputStyles.input_wrapper}`}
+            >
+              <i
+                className={`pi pi-user ${inputStyles.inputIcons} ${
+                  router.locale === "en" ? inputStyles.icon_en : ""
+                }`}
+              ></i>
+              <InputText
+                id="username"
+                name="username"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+              />
+              <label htmlFor="username">{t("contactus:username")}</label>
+              {formik.errors.username && formik.touched.username && (
+                <small id="username-help" className="p-error block">
+                  {formik.errors.username}
+                </small>
+              )}
+            </span>
+            <span
+              className={`p-float-label ${
+                router.locale === "en" && "p-input-icon-left"
+              } ${inputStyles.input_wrapper}`}
+            >
+              <i
+                className={`pi pi-envelope ${inputStyles.inputIcons} ${
+                  router.locale === "en" ? inputStyles.icon_en : ""
+                }`}
+              ></i>
+              <InputText
+                id="email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+              />
+              <label htmlFor="email">{t("contactus:email")}</label>
+              {formik.errors.email && formik.touched.email && (
+                <small id="email-help" className="p-error block">
+                  {formik.errors.email}
+                </small>
+              )}
+            </span>
+            <span
+              className={`p-float-label ${
+                router.locale === "en" && "p-input-icon-left"
+              } ${inputStyles.input_wrapper}`}
+            >
+              <FontAwesomeIcon
+                icon={faCommentDots}
+                className={`${inputStyles.inputIcons} ${
+                  router.locale === "en" ? inputStyles.icon_en : ""
+                }`}
+              />
+              {/* <i
               className={`fa-regular fa-comment-dots  ${
                 inputStyles.inputIcons
               } ${router.locale === "en" ? inputStyles.icon_en : ""}`}
             ></i> */}
-            <InputTextarea
-              value={formik.values.message}
-              onChange={formik.handleChange}
-              id="message"
-              // className={`p-float-label ${inputStyles.input_wrapper}`}
-              rows={5}
-              cols={30}
-              autoResize
+              <InputTextarea
+                value={formik.values.message}
+                onChange={formik.handleChange}
+                id="message"
+                // className={`p-float-label ${inputStyles.input_wrapper}`}
+                rows={5}
+                cols={30}
+                autoResize
+              />
+              <label htmlFor="message">{t("contactus:msg")}</label>
+              {formik.errors.message && formik.touched.message && (
+                <small id="message-help" className="p-error block">
+                  {formik.errors.message}
+                </small>
+              )}
+            </span>
+            <CustomButton
+              text={t("contactus:send_btn")}
+              color="secondary-box"
+              style={{
+                width: "100%",
+                padding: "1.5rem 0",
+                backgroundColor: "#e44c00",
+                textTransform: "capitalize",
+              }}
             />
-            <label htmlFor="message">{t("contactus:msg")}</label>
-            {formik.errors.message && formik.touched.message && (
-              <small id="message-help" className="p-error block">
-                {formik.errors.message}
-              </small>
-            )}
-          </span>
-          <CustomButton
-            text={t("contactus:send_btn")}
-            color="secondary-box"
-            style={{
-              width: "100%",
-              padding: "1.5rem 0",
-              backgroundColor: "#e44c00",
-              textTransform: "capitalize",
-            }}
-          />
-        </form>
-      </section>
-      <section
-        style={{ backgroundImage: `url(/images/contact-bg.png)` }}
-        className={styles.col}
-      >
-        <div className={styles.contact_info_wrapper}>
-          <h1>{t("contactus:title")}</h1>
-          <p>{t("contactus:info")}</p>
-          <ul>
-            <li>
-              <i
-                className={`pi pi-facebook ${
-                  router.locale === "en" ? styles.en : " "
-                }`}
-              ></i>
-              @STK2DAY1
-            </li>
-            <li className={styles.mail}>
-              <i
-                className={`pi pi-envelope ${
-                  router.locale === "en" ? styles.en : " "
-                }`}
-              ></i>
-              <a href="mailto:stk2day1@yahoo.com">STK2DAY1@Yahoo.com</a>
-            </li>
-            <li>
-              <i
-                className={`pi pi-phone ${
-                  router.locale === "en" ? styles.en : " "
-                }`}
-              ></i>
-              +2012358992
-            </li>
-            <li>
-              <i
-                className={`pi pi-phone ${
-                  router.locale === "en" ? styles.en : " "
-                }`}
-              ></i>
-              +1235478952
-            </li>
-          </ul>
-        </div>
-      </section>
+          </form>
+        </section>
+        <section
+          style={{ backgroundImage: `url(/images/contact-bg.png)` }}
+          className={"col"}
+        >
+          <div className={"contact_info_wrapper"}>
+            <h1>{t("contactus:title")}</h1>
+            <p>{t("contactus:info")}</p>
+            <ul>
+              <li>
+                <i
+                  className={`pi pi-facebook ${
+                    router.locale === "en" ? "en" : " "
+                  }`}
+                ></i>
+                @STK2DAY1
+              </li>
+              <li className={"mail"}>
+                <i
+                  className={`pi pi-envelope ${
+                    router.locale === "en" ? "en" : " "
+                  }`}
+                ></i>
+                <a href="mailto:stk2day1@yahoo.com">STK2DAY1@Yahoo.com</a>
+              </li>
+              <li>
+                <i
+                  className={`pi pi-phone ${
+                    router.locale === "en" ? "en" : " "
+                  }`}
+                ></i>
+                +2012358992
+              </li>
+              <li>
+                <i
+                  className={`pi pi-phone ${
+                    router.locale === "en" ? "en" : " "
+                  }`}
+                ></i>
+                +1235478952
+              </li>
+            </ul>
+          </div>
+        </section>
+        <style jsx>
+          {`
+            .contactus {
+              display: flex;
+              justify-content: space-between;
+              gap: 2rem;
+              padding: 2rem 0;
+
+              // flex-wrap: wrap;
+              @media (max-width: 768px) {
+                flex-wrap: wrap;
+              }
+            }
+
+            .col {
+              width: 100%;
+            }
+
+            .col:last-child {
+              background-repeat: no-repeat;
+              background-size: cover;
+              padding: 2rem;
+
+              h1 {
+                text-transform: capitalize;
+                color: var(--default-color);
+                margin-bottom: 2rem;
+                font-size: 1.9rem;
+              }
+
+              p {
+                color: var(--default-color);
+              }
+
+              li {
+                color: var(--default-color);
+                display: block;
+                margin-bottom: 2rem;
+                font-size: 1.1rem;
+                color: #999999;
+
+                i {
+                  display: inline-block;
+                  color: var(--secondary-color);
+                  margin-left: 10px;
+                  font-size: 1.3rem;
+                }
+
+                .en {
+                  margin-right: 10px;
+                  margin-left: 0;
+                }
+              }
+
+              ul {
+                list-style: none;
+                margin-top: 2rem;
+              }
+
+              @media (max-width: 768px) {
+                background-size: auto;
+              }
+            }
+
+            .contact_info_wrapper {
+              background-color: #fff;
+              padding: 2rem;
+              border-radius: 8px;
+            }
+          `}
+        </style>
+      </div>
     </motion.div>
   );
 }

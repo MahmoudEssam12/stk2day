@@ -170,6 +170,34 @@ function CategoriesSection() {
           )}
         </div>
       </div>
+      <style jsx>
+        {`
+          .buttons_container {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            flex-wrap: wrap;
+          }
+
+          .slider_container {
+            direction: ltr;
+            margin: 2rem 0;
+          }
+
+          .product_item_card {
+            background-color: #fff8f3;
+            overflow: hidden;
+          }
+
+          .info_text {
+            direction: rtl;
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: #fff;
+          }
+        `}
+      </style>
     </section>
   );
 }

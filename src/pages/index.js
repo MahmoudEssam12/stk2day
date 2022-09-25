@@ -19,7 +19,7 @@ export default function Home() {
   const router = useRouter()
   return (
     <motion.div
-      exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+      exit={{ opacity: 0, y: 20 }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
     >
       <Head>
         <title>

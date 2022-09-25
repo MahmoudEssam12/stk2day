@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ProfileSidebar from "../components/ProfileSidebar/ProfileSidebar";
 import { MainLayout } from "../layout/mainLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -40,10 +39,10 @@ function Favourits() {
   }, []);
   return (
     <motion.div
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className={` ${styles.favourits}`}
+      exit={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={`favourits`}
     >
       <header>
         <picture>
@@ -51,7 +50,7 @@ function Favourits() {
         </picture>
       </header>
 
-      <div className={`c-container ${styles.products}`}>
+      <div className={`c-container products`}>
         {favourits.length ? (
           favourits.map((product, index) => (
             <ProductCard
@@ -64,7 +63,7 @@ function Favourits() {
             />
           ))
         ) : (
-          <div className={styles.empty}>
+          <div className="empty">
             <picture>
               <img src="/images/404.png" alt="favourits is empty" />
             </picture>
@@ -72,6 +71,35 @@ function Favourits() {
           </div>
         )}
       </div>
+      <style lang="scss" jsx>
+        {`
+          header {
+            max-height: 400px;
+            background-color: var(--light-secondary);
+            padding: 2rem;
+            text-align: center;
+          }
+
+          img {
+            max-width: 200px;
+          }
+          .products {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding: 2rem 0;
+          }
+
+          .empty {
+            text-align: center;
+            margin: auto;
+          }
+          h1 {
+            color: var(--secondary-color);
+          }
+        `}
+      </style>
     </motion.div>
   );
 }

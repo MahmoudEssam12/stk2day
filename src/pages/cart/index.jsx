@@ -73,18 +73,18 @@ function Cart() {
   }, [items]);
   return (
     <motion.div
-      exit={{ opacity: 0 }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
     >
       <section>
-        <div className={styles.img_wrapper}>
+        <div className={"img_wrapper"}>
           <picture>
             <img src="/images/cart-lg.png" alt="stk2day - cart" />
           </picture>
         </div>
         {step === 1 ? (
-          <div className={`c-container ${styles.products_wrapper}`}>
+          <div className={`c-container products_wrapper`}>
             <h1>{t("cart:cart_title")}</h1>
             <div className={styles.products}>
               {items.map((item) => (
@@ -100,7 +100,7 @@ function Cart() {
                 />
               ))}
 
-              <div className={styles.order_details}>
+              <div className={"order_details"}>
                 <div>
                   <h5>{t("cart:cart_total")}</h5>
                   <h5>{t("cart:delivery_cost")}</h5>
@@ -111,7 +111,7 @@ function Cart() {
                 </div>
               </div>
             </div>
-            <div className={styles.voucher_wrapper}>
+            <div className={"voucher_wrapper"}>
               <span
                 className={`p-float-label  ${
                   router.locale === "en" && "p-input-icon-left"
@@ -140,7 +140,7 @@ function Cart() {
                 />
               </div>
             </div>
-            <div className={`${styles.order_details} ${styles.order_total}`}>
+            <div className={`order_details order_total`}>
               <div>
                 <h5>{t("cart:cart_total")}</h5>
                 <h5>
@@ -214,6 +214,97 @@ function Cart() {
           </div>
         )}
       </section>
+      <style jsx>
+        {`
+          .img_wrapper {
+            background-color: var(--light-secondary);
+            text-align: center;
+
+            img {
+              max-width: 150px;
+            }
+          }
+
+          .products_wrapper {
+            padding: 2rem 0;
+
+            h1 {
+              margin: 1rem 0;
+              text-transform: capitalize;
+            }
+
+            .products div:first-child {
+              border-top-left-radius: 8px;
+              border-top-right-radius: 8px;
+            }
+          }
+
+          .order_details {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f6f6f6;
+            padding: 1rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+
+            h5 {
+              text-transform: capitalize;
+              font-size: 1rem;
+              margin-bottom: 0.5rem;
+              font-weight: 500;
+            }
+
+            div:last-child h5 {
+              color: #004483;
+              font-size: 1.2rem;
+            }
+          }
+
+          .voucher_wrapper {
+            margin: 2rem 0;
+            display: flex;
+
+            input {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+
+            .ar input {
+              border-radius: 0;
+              border-top-right-radius: 8px;
+              border-bottom-right-radius: 8px;
+            }
+
+            button {
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+              height: 60px;
+
+              @media (max-width: 768px) {
+                max-width: 100px;
+              }
+            }
+
+            .ar button {
+              border-radius: 0;
+              border-top-right-radius: 0px;
+              border-bottom-right-radius: 0px;
+              border-top-left-radius: 8px;
+              border-bottom-left-radius: 8px;
+            }
+          }
+
+          .order_total {
+            div:last-child {
+              color: #004483;
+            }
+
+            div:first-child h5:last-child {
+              color: var(--secondary-color);
+            }
+          }
+        `}
+      </style>
     </motion.div>
   );
 }

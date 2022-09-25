@@ -3,8 +3,8 @@ import Link from "next/link";
 import style from "./ProductGrid.module.scss";
 function ProductsGrid() {
   return (
-    <section className={style.grid_wrapper}>
-      <div className={`${style.product} ${style.very_light_blue}`}>
+    <section className={`grid_wrapper`}>
+      <div className={`product very_light_blue`}>
         <Link href="#">
           <>
             <picture>
@@ -13,8 +13,8 @@ function ProductsGrid() {
           </>
         </Link>
       </div>
-      <div className={style.products_wrapper} style={{ maxWidth: "600px" }}>
-        <div className={`${style.product} ${style.light_blue}`}>
+      <div className={"products_wrapper"} style={{ maxWidth: "600px" }}>
+        <div className={`product light_blue`}>
           <Link href="#">
             <>
               <picture>
@@ -23,7 +23,7 @@ function ProductsGrid() {
             </>
           </Link>
         </div>
-        <div className={`${style.product} ${style.middle}`}>
+        <div className={`product middle`}>
           <Link href="#">
             <>
               <picture>
@@ -32,7 +32,7 @@ function ProductsGrid() {
             </>
           </Link>
         </div>
-        <div className={style.product}>
+        <div className={"product"}>
           <Link href="#">
             <>
               <picture>
@@ -42,7 +42,7 @@ function ProductsGrid() {
           </Link>
         </div>
 
-        <div className={style.product}>
+        <div className={"product"}>
           <Link href="#">
             <>
               <picture>
@@ -51,7 +51,7 @@ function ProductsGrid() {
             </>
           </Link>
         </div>
-        <div className={`${style.product} ${style.skin_color}`}>
+        <div className={`product skin_color`}>
           <Link href="#">
             <>
               <picture>
@@ -61,7 +61,7 @@ function ProductsGrid() {
           </Link>
         </div>
       </div>
-      <div className={`${style.product} ${style.off_white}`}>
+      <div className={`product off_white`}>
         <Link href="#">
           <>
             <picture>
@@ -70,6 +70,87 @@ function ProductsGrid() {
           </>
         </Link>
       </div>
+
+      <style jsx>
+        {`
+          .grid_wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("/images/login-bg.png");
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            .very_light_blue {
+              background-color: #ecfcff;
+            }
+
+            .middle {
+              background-color: #e86f32;
+              grid-row: span 2;
+            }
+
+            .off_white {
+              background-color: #f5ffea;
+            }
+
+            .light_blue {
+              background-color: #b9dbef;
+            }
+
+            .skin_color {
+              background-color: #ffe9be;
+            }
+
+            .product {
+              position: relative;
+              border-radius: 8px;
+              overflow: hidden;
+            }
+          }
+
+          .products_wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 1rem;
+
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+
+          @media (max-width: 900px) {
+            .products_wrapper {
+              margin: 0 1rem;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .products_wrapper {
+              grid-template-columns: repeat(2, 1fr);
+
+              .product:last-child {
+                grid-column: span 1;
+                grid-row-start: auto;
+                grid-row-end: auto;
+              }
+            }
+          }
+
+          @media (max-width: 576px) {
+            .products_wrapper {
+              grid-template-columns: repeat(1, 1fr);
+
+              .product:first-child {
+                grid-column: auto;
+              }
+            }
+          }
+        `}
+      </style>
     </section>
   );
 }
