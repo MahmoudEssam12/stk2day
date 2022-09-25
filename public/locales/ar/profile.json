@@ -70,5 +70,10 @@
   "payment_date": "تاريخ المدفوع",
   "referral_add": "إضافة",
   "referral_campaign": "حدد الحملة التي تود استخدامها",
-  "referral_new_campaign": "إضافة حملة جديدة"
+  "referral_new_campaign": "إضافة حملة جديدة",
+  "settings_title": "إعداد اشعارات البريد الإلكتروني",
+  "settings_emails_placeholder": "عناوين البريد الإلكتروني الإضافية: (مفصولة بفاصلة)",
+  "settings_emails_checkbox": "المحولة فقط",
+  "settings_paying_method": "حدد الطريقة التي يتم الدفع بها",
+  "settings_vod_num": "رقم فودافون كاش الخاص بك"
 }

@@ -12,7 +12,7 @@ import { useTranslation } from "next-i18next";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import inputStyles from "../../styles/Inputs.module.scss";
 import { Password } from "primereact/password";
-import passwordStyles from "../../styles/Login.module.scss";
+import { motion } from "framer-motion";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -93,7 +93,11 @@ function Profile() {
     validationSchema,
   });
   return (
-    <>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <section className={styles.wrapper}>
         <form
           onSubmit={formik.handleSubmit}
@@ -383,7 +387,7 @@ function Profile() {
           )}
         </form>
       </section>
-    </>
+    </motion.div>
   );
 }
 Profile.getLayout = function getLayout(page) {

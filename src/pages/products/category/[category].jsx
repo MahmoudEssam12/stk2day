@@ -234,9 +234,9 @@ function Category() {
 
   return (
     <motion.div
-      exit={{ opacity: 0, y: 100 }}
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className="c-container"
       style={{ padding: " 2rem 0" }}
     >

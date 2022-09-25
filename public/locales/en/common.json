@@ -1,5 +1,6 @@
 {
   "email_validation": "email is required",
+  "email_check": "Enter correct email",
   "password_validation": "password is required",
   "search_btn": "Search",
   "search_txt": "What are you looking for?",
@@ -13,5 +14,7 @@
   "companyname": "company name",
   "edit": "edit",
   "save": "save",
-  "not_found": "Are you lost?"
+  "not_found": "Are you lost?",
+  "empty_favs": "Favourits is empty",
+  "empty_cart": "Cart is empty"
 }

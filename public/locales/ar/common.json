@@ -1,5 +1,6 @@
 {
   "email_validation": "البريد الالكتروني مطلوب",
+  "email_check": "ادخل بريد إالكتروني صحيح",
   "password_validation": "كلمة المرور مطلوبة",
   "search_btn": "بحث",
   "search_txt": "مالذي تبحث عنه؟",
@@ -13,5 +14,7 @@
   "companyname": "إسم الشركة",
   "edit": "تعديل",
   "save": "حفظ",
-  "not_found": "حاول ان تبحث بصيغة أخرى"
+  "not_found": "حاول ان تبحث بصيغة أخرى",
+  "empty_favs": "المفضلة فارغة",
+  "empty_cart": "السلة فارغة"
 }

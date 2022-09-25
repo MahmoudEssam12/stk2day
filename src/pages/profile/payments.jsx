@@ -5,6 +5,8 @@ import styles from "../../styles/Profile.module.scss";
 import ProfileTable from "../../components/ProfileTable/ProfileTable";
 import { MainLayout } from "../../layout/mainLayout";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
+import { motion } from "framer-motion";
+
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -127,7 +129,12 @@ function Payments() {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.payments}>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.payments}
+    >
       <div>
         <p>
           {" "}
@@ -143,7 +150,7 @@ function Payments() {
         <h2>{t("profile:completed_payments")}</h2>
         <ProfileTable data={tableData} />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

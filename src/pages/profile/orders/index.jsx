@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { Dropdown } from "primereact/dropdown";
 import CustomButton from "../../../components/CustomButton/CustomButton";
 import ProfileTable from "../../../components/ProfileTable/ProfileTable";
+import { motion } from "framer-motion";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -190,154 +191,160 @@ function Orders() {
   });
 
   return (
-    <section className={styles.orders_wrapper}>
-      <form onSubmit={formik.handleSubmit} className={styles.filters}>
-        <span
-          className={`p-float-label ${
-            router.locale === "en" && "p-input-icon-left"
-          } ${inputStyles.input_wrapper} ${styles.input}`}
-        >
-          <InputText
-            value={formik.values.mobileNumber}
-            onChange={formik.handleChange}
-            name="mobileNumber"
-            id="mobileNumber"
-            className={
-              formik.errors.username &&
-              formik.touched.mobileNumber &&
-              "p-invalid"
-            }
-          />
-          <label htmlFor="mobileNumber">
-            {t("profile:order_mobilenumber")}
-          </label>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <section className={styles.orders_wrapper}>
+        <form onSubmit={formik.handleSubmit} className={styles.filters}>
+          <span
+            className={`p-float-label ${
+              router.locale === "en" && "p-input-icon-left"
+            } ${inputStyles.input_wrapper} ${styles.input}`}
+          >
+            <InputText
+              value={formik.values.mobileNumber}
+              onChange={formik.handleChange}
+              name="mobileNumber"
+              id="mobileNumber"
+              className={
+                formik.errors.username &&
+                formik.touched.mobileNumber &&
+                "p-invalid"
+              }
+            />
+            <label htmlFor="mobileNumber">
+              {t("profile:order_mobilenumber")}
+            </label>
 
-          {formik.errors.mobileNumber && formik.touched.mobileNumber && (
-            <small id="mobileNumber-help" className="p-error block">
-              {formik.errors.mobileNumber}
-            </small>
-          )}
-        </span>
-        <span
-          className={`p-float-label ${
-            router.locale === "en" && "p-input-icon-left"
-          } ${inputStyles.input_wrapper} ${styles.input}`}
-        >
-          <InputText
-            value={formik.values.orderNumber}
-            onChange={formik.handleChange}
-            name="orderNumber"
-            id="orderNumber"
-            className={
-              formik.errors.orderNumber &&
-              formik.touched.orderNumber &&
-              "p-invalid"
-            }
-          />
-          <label htmlFor="orderNumber">{t("profile:order_number")}</label>
+            {formik.errors.mobileNumber && formik.touched.mobileNumber && (
+              <small id="mobileNumber-help" className="p-error block">
+                {formik.errors.mobileNumber}
+              </small>
+            )}
+          </span>
+          <span
+            className={`p-float-label ${
+              router.locale === "en" && "p-input-icon-left"
+            } ${inputStyles.input_wrapper} ${styles.input}`}
+          >
+            <InputText
+              value={formik.values.orderNumber}
+              onChange={formik.handleChange}
+              name="orderNumber"
+              id="orderNumber"
+              className={
+                formik.errors.orderNumber &&
+                formik.touched.orderNumber &&
+                "p-invalid"
+              }
+            />
+            <label htmlFor="orderNumber">{t("profile:order_number")}</label>
 
-          {formik.errors.orderNumber && formik.touched.orderNumber && (
-            <small id="orderNumber-help" className="p-error block">
-              {formik.errors.orderNumber}
-            </small>
-          )}
-        </span>
-        <div
-          className={` ${inputStyles.input_wrapper}  ${styles.input} ${styles.calendar}`}
-        >
-          {/* <label htmlFor="range">Date Range</label> */}
-          <Calendar
-            id="range"
-            value={dates2}
-            onChange={(e) => setDates2(e.value)}
-            selectionMode="range"
-            className={`${styles.calendar_input} ${
-              router.locale === "en" && styles.en
-            }`}
-            readOnlyInput
-            showIcon
-            placeholder={t("profile:order_date")}
-          />
-        </div>
-        <span
-          className={`p-float-label ${
-            router.locale === "en" && "p-input-icon-left"
-          } ${inputStyles.input_wrapper} ${styles.input}`}
-        >
-          <Dropdown
-            value={formik.values.orderState}
-            options={orderStates}
-            onChange={formik.handleChange}
-            optionLabel="name"
-            name="orderState"
-            placeholder={t("profile:order_state")}
-            className={styles.state_list}
-            // id="orderState"
-          />
-          <label htmlFor="orderState">{t("profile:order_state")}</label>
-
-          {formik.errors.orderState && formik.touched.orderState && (
-            <small id="orderState-help" className="p-error block">
-              {formik.errors.orderState}
-            </small>
-          )}
-        </span>
-        <span
-          className={`p-float-label ${
-            router.locale === "en" && "p-input-icon-left"
-          } ${inputStyles.input_wrapper} ${styles.input}`}
-        >
-          <Dropdown
-            value={formik.values.orderCount}
-            options={ordersCount}
-            onChange={formik.handleChange}
-            optionLabel="num"
-            name="orderCount"
-            placeholder={t("profile:order_state")}
-            className={styles.state_list}
-            // defaultValue={ordersCount[0]}
-            // id="orderCount"
-          />
-          <label htmlFor="orderCount">{t("profile:order_count")}</label>
-
-          {formik.errors.orderCount && formik.touched.orderCount && (
-            <small id="orderCount-help" className="p-error block">
-              {formik.errors.orderCount}
-            </small>
-          )}
-        </span>
-        <CustomButton
-          text={t("profile:order_btn")}
-          color="secondary-box"
-          style={{
-            padding: "1rem 0",
-            backgroundColor: "var(--secondary-color)",
-            textTransform: "capitalize",
-            maxHeight: "60px",
-          }}
-        />
-      </form>
-      <div className={styles.table_wrapper}>
-        {orders.length ? (
-          <ProfileTable data={tableData} />
-        ) : (
-          <div className={styles.empty_orders}>
-            <h2>لم يتم تنفيذ أي طلب بعد.</h2>
-            <CustomButton
-              text={t("profile:to_shopping")}
-              color="secondary-box"
-              style={{
-                padding: "1rem 0",
-                backgroundColor: "var(--secondary-color)",
-                textTransform: "capitalize",
-                maxHeight: "60px",
-              }}
-              click={() => router.push("/products")}
+            {formik.errors.orderNumber && formik.touched.orderNumber && (
+              <small id="orderNumber-help" className="p-error block">
+                {formik.errors.orderNumber}
+              </small>
+            )}
+          </span>
+          <div
+            className={` ${inputStyles.input_wrapper}  ${styles.input} ${styles.calendar}`}
+          >
+            {/* <label htmlFor="range">Date Range</label> */}
+            <Calendar
+              id="range"
+              value={dates2}
+              onChange={(e) => setDates2(e.value)}
+              selectionMode="range"
+              className={`${styles.calendar_input} ${
+                router.locale === "en" && styles.en
+              }`}
+              readOnlyInput
+              showIcon
+              placeholder={t("profile:order_date")}
             />
           </div>
-        )}
-      </div>
-    </section>
+          <span
+            className={`p-float-label ${
+              router.locale === "en" && "p-input-icon-left"
+            } ${inputStyles.input_wrapper} ${styles.input}`}
+          >
+            <Dropdown
+              value={formik.values.orderState}
+              options={orderStates}
+              onChange={formik.handleChange}
+              optionLabel="name"
+              name="orderState"
+              placeholder={t("profile:order_state")}
+              className={styles.state_list}
+              // id="orderState"
+            />
+            <label htmlFor="orderState">{t("profile:order_state")}</label>
+
+            {formik.errors.orderState && formik.touched.orderState && (
+              <small id="orderState-help" className="p-error block">
+                {formik.errors.orderState}
+              </small>
+            )}
+          </span>
+          <span
+            className={`p-float-label ${
+              router.locale === "en" && "p-input-icon-left"
+            } ${inputStyles.input_wrapper} ${styles.input}`}
+          >
+            <Dropdown
+              value={formik.values.orderCount}
+              options={ordersCount}
+              onChange={formik.handleChange}
+              optionLabel="num"
+              name="orderCount"
+              placeholder={t("profile:order_state")}
+              className={styles.state_list}
+              // defaultValue={ordersCount[0]}
+              // id="orderCount"
+            />
+            <label htmlFor="orderCount">{t("profile:order_count")}</label>
+
+            {formik.errors.orderCount && formik.touched.orderCount && (
+              <small id="orderCount-help" className="p-error block">
+                {formik.errors.orderCount}
+              </small>
+            )}
+          </span>
+          <CustomButton
+            text={t("profile:order_btn")}
+            color="secondary-box"
+            style={{
+              padding: "1rem 0",
+              backgroundColor: "var(--secondary-color)",
+              textTransform: "capitalize",
+              maxHeight: "60px",
+            }}
+          />
+        </form>
+        <div className={styles.table_wrapper}>
+          {orders.length ? (
+            <ProfileTable data={tableData} />
+          ) : (
+            <div className={styles.empty_orders}>
+              <h2>لم يتم تنفيذ أي طلب بعد.</h2>
+              <CustomButton
+                text={t("profile:to_shopping")}
+                color="secondary-box"
+                style={{
+                  padding: "1rem 0",
+                  backgroundColor: "var(--secondary-color)",
+                  textTransform: "capitalize",
+                  maxHeight: "60px",
+                }}
+                click={() => router.push("/products")}
+              />
+            </div>
+          )}
+        </div>
+      </section>
+    </motion.div>
   );
 }
 Orders.getLayout = function getLayout(page) {

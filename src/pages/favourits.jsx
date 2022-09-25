@@ -7,6 +7,7 @@ import ProductCard from "../components/ProductCard/ProductCard";
 import styles from "../styles/favourits.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { selectFavourit, addMultiFavs } from "../store/slices/favourtisSlice";
+import { motion } from "framer-motion";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -26,6 +27,7 @@ function Favourits() {
   const favourits = useSelector(selectFavourit);
   const dispatch = useDispatch();
   const [fav, setFav] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (typeof window !== "undefined" && !favourits.length) {
@@ -37,7 +39,12 @@ function Favourits() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className={` ${styles.favourits}`}>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={` ${styles.favourits}`}
+    >
       <header>
         <picture>
           <img src="/images/heart.png" alt="stk2day - favourits" />
@@ -57,10 +64,15 @@ function Favourits() {
             />
           ))
         ) : (
-          <div>no favourits</div>
+          <div className={styles.empty}>
+            <picture>
+              <img src="/images/404.png" alt="favourits is empty" />
+            </picture>
+            <h1>{t("common:empty_favs")}</h1>
+          </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

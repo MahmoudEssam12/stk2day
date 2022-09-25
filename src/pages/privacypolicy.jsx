@@ -24,9 +24,9 @@ function PrivacyPolicy() {
   const { locale } = useRouter();
   return (
     <motion.div
-      exit={{ opacity: 0, x: 100 }}
-      initial={{ opacity: 0, x: 100 }}
-      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className={`c-container ${styles.main}`}
     >
       <h1>{t("privacypolicy:title")}</h1>

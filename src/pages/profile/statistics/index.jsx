@@ -118,97 +118,103 @@ function Statistics() {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
-    <section className={styles.statistics}>
-      <h3>بيانات الكود</h3>
-      <div className={styles.statistics_cards_wrapper}>
-        <StatisticCard
-          headerText={t("profile:commission")}
-          description="من 10 لـ 50 جنيه حسب كل المنتج."
-        />
-        <StatisticCard headerText={t("profile:coupon")} description="3" />
-        <StatisticCard
-          headerText={t("profile:discount")}
-          description="0 جنية"
-        />
-      </div>
-      <ul>
-        {tabs.map((tab) => (
-          <li
-            key={tab.name}
-            className={selectedTab.name === tab.name ? styles.selected : ""}
-            onClick={() => setSelectedTab(tab)}
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <section className={styles.statistics}>
+        <h3>بيانات الكود</h3>
+        <div className={styles.statistics_cards_wrapper}>
+          <StatisticCard
+            headerText={t("profile:commission")}
+            description="من 10 لـ 50 جنيه حسب كل المنتج."
+          />
+          <StatisticCard headerText={t("profile:coupon")} description="3" />
+          <StatisticCard
+            headerText={t("profile:discount")}
+            description="0 جنية"
+          />
+        </div>
+        <ul>
+          {tabs.map((tab) => (
+            <li
+              key={tab.name}
+              className={selectedTab.name === tab.name ? styles.selected : ""}
+              onClick={() => setSelectedTab(tab)}
+            >
+              {" "}
+              {tab.name}
+            </li>
+          ))}
+        </ul>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedTab ? selectedTab.name : "empty"}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            {" "}
-            {tab.name}
-          </li>
-        ))}
-      </ul>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={selectedTab ? selectedTab.name : "empty"}
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -10, opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          {selectedTab.name === t("profile:all") ? (
-            <>
-              <div className={styles.statistics_cards_wrapper}>
-                <StatisticCard
-                  headerText={t("profile:profit")}
-                  description={selectedTab.profit}
-                />
-                <StatisticCard
-                  headerText={t("profile:total_discounts")}
-                  description={selectedTab.total_discounts}
-                />
-                <StatisticCard
-                  headerText={t("profile:total_sales")}
-                  description={selectedTab.total_sales}
-                />{" "}
-              </div>
-              <Chart type="line" data={selectedTab.data} />
-            </>
-          ) : selectedTab.name === t("profile:month") ? (
-            <>
-              <div className={styles.statistics_cards_wrapper}>
-                <StatisticCard
-                  headerText={t("profile:profit")}
-                  description={selectedTab.profit}
-                />
-                <StatisticCard
-                  headerText={t("profile:total_discounts")}
-                  description={selectedTab.total_discounts}
-                />
-                <StatisticCard
-                  headerText={t("profile:total_sales")}
-                  description={selectedTab.total_sales}
-                />{" "}
-              </div>
-              <Chart type="line" data={selectedTab.data} />
-            </>
-          ) : (
-            <>
-              <div className={styles.statistics_cards_wrapper}>
-                <StatisticCard
-                  headerText={t("profile:profit")}
-                  description={selectedTab.profit}
-                />
-                <StatisticCard
-                  headerText={t("profile:total_discounts")}
-                  description={selectedTab.total_discounts}
-                />
-                <StatisticCard
-                  headerText={t("profile:total_sales")}
-                  description={selectedTab.total_sales}
-                />{" "}
-              </div>
-              <Chart type="line" data={selectedTab.data} />
-            </>
-          )}
-        </motion.div>
-      </AnimatePresence>
-    </section>
+            {selectedTab.name === t("profile:all") ? (
+              <>
+                <div className={styles.statistics_cards_wrapper}>
+                  <StatisticCard
+                    headerText={t("profile:profit")}
+                    description={selectedTab.profit}
+                  />
+                  <StatisticCard
+                    headerText={t("profile:total_discounts")}
+                    description={selectedTab.total_discounts}
+                  />
+                  <StatisticCard
+                    headerText={t("profile:total_sales")}
+                    description={selectedTab.total_sales}
+                  />{" "}
+                </div>
+                <Chart type="line" data={selectedTab.data} />
+              </>
+            ) : selectedTab.name === t("profile:month") ? (
+              <>
+                <div className={styles.statistics_cards_wrapper}>
+                  <StatisticCard
+                    headerText={t("profile:profit")}
+                    description={selectedTab.profit}
+                  />
+                  <StatisticCard
+                    headerText={t("profile:total_discounts")}
+                    description={selectedTab.total_discounts}
+                  />
+                  <StatisticCard
+                    headerText={t("profile:total_sales")}
+                    description={selectedTab.total_sales}
+                  />{" "}
+                </div>
+                <Chart type="line" data={selectedTab.data} />
+              </>
+            ) : (
+              <>
+                <div className={styles.statistics_cards_wrapper}>
+                  <StatisticCard
+                    headerText={t("profile:profit")}
+                    description={selectedTab.profit}
+                  />
+                  <StatisticCard
+                    headerText={t("profile:total_discounts")}
+                    description={selectedTab.total_discounts}
+                  />
+                  <StatisticCard
+                    headerText={t("profile:total_sales")}
+                    description={selectedTab.total_sales}
+                  />{" "}
+                </div>
+                <Chart type="line" data={selectedTab.data} />
+              </>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </section>
+    </motion.div>
   );
 }
 Statistics.getLayout = function getLayout(page) {

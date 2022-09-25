@@ -22,7 +22,6 @@ import { selectCartItem, setCartItem } from "../../../store/slices/cartSlice";
 import { Toast } from "primereact/toast";
 import { useAddToCart } from "../../../utilities/addToCart";
 import { useAddToFavs } from "../../../utilities/useAddToFavs";
-
 export async function getStaticPaths() {
   return {
     paths: [{ params: { productname: "عباية مطرزة" } }],
@@ -162,7 +161,11 @@ function Product() {
   );
 
   return (
-    <>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <Head>
         <title>
           {router.locale === "en"
@@ -394,7 +397,7 @@ function Product() {
       <section className="c-container">
         <ProductsRow title={t("products:related_products")} />
       </section>
-    </>
+    </motion.div>
   );
 }
 Product.getLayout = function getLayout(page) {

@@ -10,6 +10,7 @@ import styles from "../../styles/Cart.module.scss";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { useSelector } from "react-redux";
 import { selectCartItem } from "../../store/slices/cartSlice";
+import { motion } from "framer-motion";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -71,7 +72,11 @@ function Cart() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
   return (
-    <>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <section>
         <div className={styles.img_wrapper}>
           <picture>
@@ -209,7 +214,7 @@ function Cart() {
           </div>
         )}
       </section>
-    </>
+    </motion.div>
   );
 }
 

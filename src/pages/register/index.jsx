@@ -50,7 +50,7 @@ function Register() {
     username: yup.string("").required(t("register:username_validation")),
     email: yup
       .string("")
-      .matches(emailRegex, t("common:email_validation"))
+      .matches(emailRegex, t("common:email_check"))
       .required(t("common:email_validation")),
     mobilenumber: yup
       .string("")

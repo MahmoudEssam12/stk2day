@@ -15,6 +15,8 @@ import { useQRCode } from "next-qrcode";
 import StatisticCard from "../../components/StatsticCard/StatisticCard";
 import { Checkbox } from "primereact/checkbox";
 import { Toast } from "primereact/toast";
+import { motion } from "framer-motion";
+
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -77,7 +79,12 @@ function ReferralLink() {
   };
 
   return (
-    <div className={`c-container ${styles.referralLink}`}>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={`c-container ${styles.referralLink}`}
+    >
       <Toast ref={toaster} position="bottom-left" />
       <div className={styles.inputs_wrapper}>
         <span
@@ -195,7 +202,7 @@ function ReferralLink() {
         />
         <label htmlFor="binary">المحولة فقط</label>
       </div>
-    </div>
+    </motion.div>
   );
 }
 ReferralLink.getLayout = function getLayout(page) {

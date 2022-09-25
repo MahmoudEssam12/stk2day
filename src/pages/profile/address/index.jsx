@@ -5,9 +5,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import styles from "../../../styles/Profile.module.scss";
 import CustomButton from "../../../components/CustomButton/CustomButton";
-import { InputText } from "primereact/inputtext";
-import Head from "next/head";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -55,7 +54,12 @@ function Address() {
     });
   };
   return (
-    <div className={styles.address}>
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={styles.address}
+    >
       <div>
         <h4>{t("profile:shipping_address")}</h4>
 
@@ -99,7 +103,7 @@ function Address() {
           click={() => router.push(`/profile/address/billingaddress`)}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

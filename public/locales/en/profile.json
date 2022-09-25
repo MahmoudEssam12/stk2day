@@ -70,5 +70,10 @@
   "payment_date": "payment_date",
   "referral_add": "add",
   "referral_campaign": "Select the sentence you want to use",
-  "referral_new_campaign": "Add a new campaign"
+  "referral_new_campaign": "Add a new campaign",
+  "settings_title": "Set up email notifications",
+  "settings_emails_placeholder": "Additional email addresses: (comma separated)",
+  "settings_emails_checkbox": "Converted only",
+  "settings_paying_method": "Select the method to be paid",
+  "settings_vod_num": "Your vodafone cash number"
 }

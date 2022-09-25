@@ -13,6 +13,8 @@ import * as yup from "yup";
 import { InputText } from "primereact/inputtext";
 import styles from "../../styles/Profile.module.scss";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import { motion } from "framer-motion";
+const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$/;
 
 export async function getStaticProps({ locale }) {
   return {
@@ -30,21 +32,24 @@ export async function getStaticProps({ locale }) {
 
 const options = [{ name: "vodafone cash" }, { name: "etisalat cash" }];
 
-const validationSchema = yup.object({
-  emails: yup.array(""),
-  checked: yup.boolean(""),
-  method: yup.object("").shape({
-    name: yup.string(""),
-  }),
-  phonenumber: yup.string(""),
-});
 function Settings() {
   const [values2, setValues2] = useState([
     "dev.mahmoud.essam@gmail.com",
     "essamm65@yahoo.com",
   ]);
+  const { t } = useTranslation();
   const [checked, setChecked] = useState(false);
   const [edit, setEdit] = useState(false);
+  const validationSchema = yup.object({
+    emails: yup.array(
+      yup.string("").matches(emailRegex, t("common:email_check"))
+    ),
+    checked: yup.boolean(""),
+    method: yup.object("").shape({
+      name: yup.string(""),
+    }),
+    phonenumber: yup.string(""),
+  });
   const formik = useFormik({
     initialValues: {
       emails: ["dev.mahmoud.essam@gmail.com", "essamm65@yahoo.com"],
@@ -59,14 +64,16 @@ function Settings() {
     validationSchema,
   });
   const router = useRouter();
-  const { t } = useTranslation();
   return (
-    <div
+    <motion.div
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className={`c-container ${styles.settings} ${
         router.locale === "en" && styles.en
       }`}
     >
-      <h1>إعداد اشعارات البريد الإلكتروني</h1>
+      <h1>{t("profile:settings_title")}</h1>
       <form onSubmit={formik.handleSubmit}>
         <span
           className={`p-float-label ${
@@ -84,7 +91,7 @@ function Settings() {
             disabled={edit ? false : true}
           />
           <label htmlFor="campaign">
-            عناوين البريد الإلكتروني الإضافية: (مفصولة بفاصلة)
+            {t("profile:settings_emails_placeholder")}
           </label>
 
           {formik.errors.emails && formik.touched.emails && (
@@ -102,7 +109,9 @@ function Settings() {
             className={styles.settings_checkbox}
             disabled={edit ? false : true}
           />
-          <label htmlFor="binary">المحولة فقط</label>
+          <label htmlFor="binary">
+            {t("profile:settings_emails_checkbox")}
+          </label>
         </div>
 
         <span
@@ -123,7 +132,9 @@ function Settings() {
             // id="orderState"
             disabled={edit ? false : true}
           />
-          <label htmlFor="orderState">{t("profile:referral_campaign")}</label>
+          <label htmlFor="orderState">
+            {t("profile:settings_paying_method")}
+          </label>
 
           {formik.errors.method && formik.touched.method && (
             <small id="method-help" className="p-error block">
@@ -145,7 +156,7 @@ function Settings() {
             // id="orderState"
             disabled={edit ? false : true}
           />
-          <label htmlFor="phonenumber">رقم فودافون كاش الخاص بك</label>
+          <label htmlFor="phonenumber">{t("profile:settings_vod_num")}</label>
 
           {formik.errors.phonenumber && formik.touched.phonenumber && (
             <small id="phonenumber-help" className="p-error block">
@@ -171,11 +182,11 @@ function Settings() {
             className={styles.edit_btn}
             onClick={() => setEdit(true)}
           >
-            change
+            {t("profile:change_btn")}
           </button>
         )}
       </form>
-    </div>
+    </motion.div>
   );
 }
 

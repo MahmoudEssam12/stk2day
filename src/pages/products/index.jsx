@@ -34,9 +34,9 @@ function Products() {
   };
   return (
     <motion.div
-      exit={{ opacity: 0, y: 100 }}
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       className={`c-container ${styles.products}`}
     >
       <form className={styles.search_form}>
