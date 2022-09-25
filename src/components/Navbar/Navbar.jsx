@@ -94,15 +94,17 @@ function Navbar({}) {
       console.log(language, "language");
       setLang(language);
 
-      if (Object.keys(router.components)[0] === "/404") {
-        router.push(router.asPath, "/404", { locale: language.code });
-      } else {
-        // find a way to detect if the page is 404
-        router.push(router.asPath, router.asPath, { locale: language.code });
-      }
+      // if (Object.keys(router.components)[0] === "/404") {
+      //   router.push(router.asPath, "/404", { locale: language.code });
+      // } else {
+      // find a way to detect if the page is 404
+      router.push(router.asPath, router.asPath, { locale: language.code });
+      // }
     } else {
-      const language = JSON.parse(localStorage.getItem("lang"));
-      setLang(language);
+      console.log("hello", languages[0]);
+      setLang(languages[0]);
+      // localStorage.setItem("lang",JSON.stringify(languages[0]))
+      router.push(router.asPath, router.asPath, { locale: languages[0].code });
     }
     if (localStorage.getItem("region")) {
       dispatch(setRegion(JSON.parse(localStorage.getItem("region"))));
