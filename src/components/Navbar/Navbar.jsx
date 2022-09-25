@@ -91,15 +91,18 @@ function Navbar({}) {
   useEffect(() => {
     if (localStorage.getItem("lang")) {
       const language = JSON.parse(localStorage.getItem("lang"));
+      console.log(language, "language");
       setLang(language);
-      console.log(router);
+
       if (Object.keys(router.components)[0] === "/404") {
-        console.log("true", Object.keys(router.components));
         router.push(router.asPath, "/404", { locale: language.code });
       } else {
         // find a way to detect if the page is 404
         router.push(router.asPath, router.asPath, { locale: language.code });
       }
+    } else {
+      const language = JSON.parse(localStorage.getItem("lang"));
+      setLang(language);
     }
     if (localStorage.getItem("region")) {
       dispatch(setRegion(JSON.parse(localStorage.getItem("region"))));
