@@ -21,8 +21,8 @@ function Verification() {
   const { t } = useTranslation();
   return (
     <motion.div
-      exit={{ opacity: 0, x: 100 }}
-      initial={{ opacity: 0, x: 100 }}
+      exit={{ opacity: 0, x: 20 }}
+      initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
     >
       <h1>{t("register:account_confirm")}</h1>

@@ -23,27 +23,15 @@ export async function getStaticProps({ locale }) {
     },
   };
 }
-const footer = (
-  <React.Fragment>
-    <Divider />
-    <p className="mt-2">Suggestions</p>
-    <ul className="pl-2 ml-2 mt-0" style={{ lineHeight: "1.5" }}>
-      <li>At least one lowercase</li>
-      <li>At least one uppercase</li>
-      <li>At least one numeric</li>
-      <li>Minimum 8 characters</li>
-    </ul>
-  </React.Fragment>
-);
 
 const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$/;
-const password =
-  /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})./;
+const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
 
 function Register() {
   const { t } = useTranslation();
   const router = useRouter();
   const [step, setStep] = useState(1);
+
   const validationSchema = yup.object({
     firstname: yup.string("").required(t("register:firstname_validation")),
     lastname: yup.string("").required(t("register:lastname_validation")),
@@ -59,7 +47,7 @@ function Register() {
       .required(t("register:number_validation")),
     password: yup
       .string("")
-      .min(8, t("common:password_validation"))
+      .matches(password, t("common:password_validation"))
       .required(t("common:password_validation")),
   });
   const formik = useFormik({
@@ -78,10 +66,46 @@ function Register() {
     },
     validationSchema,
   });
+
+  const testRegex = (regex) => {
+    const passField = formik.values.password;
+    const testCase = regex.test(passField);
+    return testCase;
+  };
+
+  const footer = () => {
+    let upperCaseValid = testRegex(/[A-Z]{1}/);
+    let lowerCaseValid = testRegex(/[a-z]{1}/);
+    let numericValid = testRegex(/[0-9]{1}/);
+    let valid = testRegex(password);
+    return (
+      <React.Fragment>
+        <Divider />
+        <p className="mt-2">{t("common:password_template")}</p>
+        <ul
+          className="pl-2 ml-2 mt-0 password-footer"
+          style={{ lineHeight: "1.5" }}
+        >
+          <li style={{ color: lowerCaseValid ? "green" : "black" }}>
+            {t("common:lowercase_validation")}
+          </li>
+          <li style={{ color: upperCaseValid ? "green" : "black" }}>
+            {t("common:uppercase_validation")}
+          </li>
+          <li style={{ color: numericValid ? "green" : "black" }}>
+            {t("common:numeric_validation")}
+          </li>
+          <li style={{ color: valid ? "green" : "black" }}>
+            {t("common:minimum_validation")}
+          </li>
+        </ul>
+      </React.Fragment>
+    );
+  };
   return (
     <motion.div
-      exit={{ opacity: 0, x: 100 }}
-      initial={{ opacity: 0, x: 100 }}
+      exit={{ opacity: 0, x: 20 }}
+      initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
     >
       <Head>
@@ -316,7 +340,7 @@ function Register() {
               className={`${
                 formik.errors.password && formik.touched.password && "p-invalid"
               } ${router.locale === "en" ? styles.password_en : ""}`}
-              feedback={false}
+              footer={footer}
               toggleMask
             />
             <label
@@ -354,6 +378,14 @@ function Register() {
               {router.locale === "en" ? "Login" : "تسجيل الدخول"}
             </Link>
           </div>
+
+          <style jsx>
+            {`
+              .password-footer li {
+                transition: all 0.6s ease;
+              }
+            `}
+          </style>
         </form>
       ) : step === 2 ? (
         <Step2 />

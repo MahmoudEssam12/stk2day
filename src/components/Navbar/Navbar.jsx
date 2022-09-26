@@ -91,7 +91,6 @@ function Navbar({}) {
   useEffect(() => {
     if (localStorage.getItem("lang")) {
       const language = JSON.parse(localStorage.getItem("lang"));
-      console.log(language, "language");
       setLang(language);
 
       // if (Object.keys(router.components)[0] === "/404") {

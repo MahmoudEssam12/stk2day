@@ -14,7 +14,6 @@ function VerificationInput({ length, label, loading, onComplete }) {
     setCode(newCode);
     if (slot !== length - 1) {
       inputs.current[slot + 1].focus();
-      console.log(inputs.current);
     }
     if (newCode.every((num) => num !== "")) {
       inputs.current[newCode.length - 1].blur();

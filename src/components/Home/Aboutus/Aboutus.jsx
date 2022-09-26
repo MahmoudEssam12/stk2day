@@ -16,8 +16,8 @@ function Aboutus() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.col}>
-        <h2>{t("home:about_us_title")}</h2>
-        <p>{t("home:about_us")}</p>
+        <h2>{t("common:about_us_title")}</h2>
+        <p>{t("common:about_us")}</p>
       </div>
       <div className={styles.col}>
         <YouTube

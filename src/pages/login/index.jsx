@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["login"])),
+      ...(await serverSideTranslations(locale, ["login", "common"])),
     },
   };
 }
@@ -23,17 +23,16 @@ export async function getStaticProps({ locale }) {
 const emailRegex =
   /(?:\d{11}|^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$)/;
 
-const validationSchema = yup.object({
-  email: yup
-    .string("")
-    .matches(emailRegex, "أدخل إيميل أو رقم الهاتف الخاص بك بشكل صحيح")
-    .required("يجب إدخال الإيميل أو رقم الهاتف"),
-  password: yup.string("").required("يجب إدخال كلمة المرور!"),
-});
-
 function Index() {
   const { t } = useTranslation();
   const { locale } = useRouter();
+  const validationSchema = yup.object({
+    email: yup
+      .string("")
+      .matches(emailRegex, t("common:email_check"))
+      .required(t("common:email_validation")),
+    password: yup.string("").required(t("common:password_validation")),
+  });
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -48,8 +47,8 @@ function Index() {
   const [value3, setValue3] = useState("");
   return (
     <motion.div
-      exit={{ opacity: 0, x: 100 }}
-      initial={{ opacity: 0, x: 100 }}
+      exit={{ opacity: 0, x: 20 }}
+      initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
     >
       <Head>

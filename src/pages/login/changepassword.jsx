@@ -2,6 +2,7 @@ import React from "react";
 import { Password } from "primereact/password";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { useFormik } from "formik";
+import { Divider } from "primereact/divider";
 import * as yup from "yup";
 import Head from "next/head";
 import styles from "../../styles/Login.module.scss";
@@ -13,23 +14,27 @@ import { useTranslation } from "next-i18next";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["login"])),
+      ...(await serverSideTranslations(locale, ["login", "common"])),
     },
   };
 }
-const validationSchema = yup.object({
-  password: yup.string("").required("يجب إدخال كلمة المرور الجديدة!"),
-  confirmpassword: yup.string("").when("password", {
-    is: (val) => (val && val.length > 0 ? true : false),
-    then: yup
-      .string()
-      .oneOf([yup.ref("password")], "يجب أن تدخل نفس كلمة المرور مرة أخرى"),
-  }),
-});
+const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
 
 function ChangePassword() {
   const { t } = useTranslation();
   const router = useRouter();
+  const validationSchema = yup.object({
+    password: yup
+      .string("")
+      .matches(password, t("common:password_validation"))
+      .required(t("common:newpassword_validation")),
+    confirmpassword: yup.string("").when("password", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: yup
+        .string()
+        .oneOf([yup.ref("password")], t("common:confirmpassword_validation")),
+    }),
+  });
   const formik = useFormik({
     initialValues: {
       password: "",
@@ -43,10 +48,44 @@ function ChangePassword() {
     },
     validationSchema,
   });
+  const testRegex = (regex) => {
+    const passField = formik.values.password;
+    const testCase = regex.test(passField);
+    return testCase;
+  };
+  const footer = () => {
+    let upperCaseValid = testRegex(/[A-Z]{1}/);
+    let lowerCaseValid = testRegex(/[a-z]{1}/);
+    let numericValid = testRegex(/[0-9]{1}/);
+    let valid = testRegex(password);
+    return (
+      <React.Fragment>
+        <Divider />
+        <p className="mt-2">{t("common:password_template")}</p>
+        <ul
+          className="pl-2 ml-2 mt-0 password-footer"
+          style={{ lineHeight: "1.5" }}
+        >
+          <li style={{ color: lowerCaseValid ? "green" : "black" }}>
+            {t("common:lowercase_validation")}
+          </li>
+          <li style={{ color: upperCaseValid ? "green" : "black" }}>
+            {t("common:uppercase_validation")}
+          </li>
+          <li style={{ color: numericValid ? "green" : "black" }}>
+            {t("common:numeric_validation")}
+          </li>
+          <li style={{ color: valid ? "green" : "black" }}>
+            {t("common:minimum_validation")}
+          </li>
+        </ul>
+      </React.Fragment>
+    );
+  };
   return (
     <motion.div
-      exit={{ opacity: 0, x: 100 }}
-      initial={{ opacity: 0, x: 100 }}
+      exit={{ opacity: 0, x: 20 }}
+      initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
     >
       <Head>
@@ -84,7 +123,7 @@ function ChangePassword() {
             className={`${
               formik.errors.password && formik.touched.password && "p-invalid"
             } ${router.locale === "en" ? styles.password_en : ""}`}
-            feedback={false}
+            footer={footer}
             toggleMask
           />
           <label

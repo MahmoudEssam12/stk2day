@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["navbar", "headerText", "footer", "home"])),
+      ...(await serverSideTranslations(locale, ["navbar", "headerText", "footer", "home", "common"])),
     },
   };
 }
@@ -36,9 +36,7 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   return (
     <MainLayout >
-      {/* <Navbar /> */}
       {page}
-      {/* <Footer /> */}
     </MainLayout>
   )
 }

@@ -24,14 +24,14 @@ function Home() {
     <main>
       <div className="c-container">
         {/* <Header /> */}
-        <HeaderText mainHeader={t("headerText:main_text")} />
+        <HeaderText mainHeader={t("common:main_text")} />
         <ProductsGrid />
       </div>
       <Aboutus />
       <div className="c-container">
-        <HeaderText mainHeader={t("headerText:features")} />
+        <HeaderText mainHeader={t("common:features")} />
         <FeatureCards />
-        <HeaderText mainHeader={t("headerText:common_qa")} />
+        <HeaderText mainHeader={t("common:common_qa")} />
         <QA />
       </div>
       {/* <HeaderText subHeader="تسوق الأن" mainHeader="أشتري الأن ما تريد" />

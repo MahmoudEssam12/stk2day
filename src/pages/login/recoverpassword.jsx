@@ -14,23 +14,22 @@ import { useTranslation } from "next-i18next";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["login"])),
+      ...(await serverSideTranslations(locale, ["login", "common"])),
     },
   };
 }
 const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$/;
 
-const validationSchema = yup.object({
-  email: yup
-    .string("")
-    .matches(emailRegex, "أدخل البريد الإلكتروني الخاص بك بشكل صحيح")
-    .required("يجب إدخال البريد الإلكتروني!"),
-});
-
 function RecoverPassword() {
   const { t } = useTranslation();
   const [recoverd, setRecoverd] = useState(false);
   const router = useRouter();
+  const validationSchema = yup.object({
+    email: yup
+      .string("")
+      .matches(emailRegex, t("common:email_check"))
+      .required(t("common:email_validation")),
+  });
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -58,8 +57,8 @@ function RecoverPassword() {
       <h1>{t("login:restore_password_title")}</h1>
       {recoverd ? (
         <motion.div
-          exit={{ opacity: 0, x: 100 }}
-          initial={{ opacity: 0, x: 100 }}
+          exit={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
         >
           <p style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
