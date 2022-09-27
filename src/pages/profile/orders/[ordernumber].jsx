@@ -55,37 +55,48 @@ function OrderNumber() {
               : `ستوك تو داي- ${ordernumber}`}
           </title>
         </Head>
-        <p style={{ marginBottom: "2rem" }}>
-          {t("profile:order_detail")} <span>{ordernumber}</span> في يوليو 27,
-          2022 وهو الآن بحالة <span> مُكتمل</span>
-        </p>
-        <h1>{t("profile:order_detail_title")}</h1>
+
+        {router.locale === "en" ? (
+          <p style={{ marginBottom: "2rem" }}>
+            Application No <span>{ordernumber}</span> has been submitted in span
+            27 july 2022 and it&aposs state is <span> completed</span>
+          </p>
+        ) : (
+          <p style={{ marginBottom: "2rem" }}>
+            تم تقديم الطلب رقم <span>{ordernumber}</span> في 27 يوليو 2022 وحالة{" "}
+            <span> مكتمل</span>
+          </p>
+        )}
+
+        <h1 style={{ textTransform: "capitalize" }}>
+          {t("profile:order_detail_title")}
+        </h1>
         <div className={styles.order_details_header}>
-          <span>المنتج</span>
-          <span>الإجمالي</span>
+          <span>{t("common:orderpage_product")}</span>
+          <span>{t("common:orderpage_price")}</span>
         </div>
 
         <OrderProduct />
         <OrderProduct />
 
         <div className={styles.order_borders}>
-          <span>المجموع</span>
+          <span>{t("common:orderpage_total")}</span>
           <span>110 جنية</span>
         </div>
         <div className={styles.order_borders}>
-          <span>الشحن:</span>
+          <span>{t("common:orderpage_shipping")} :</span>
           <span>35 جنية(بواسطة تكلفة شحن) </span>
         </div>
         <div className={styles.order_borders}>
-          <span>وسيلة الدفع:</span>
+          <span> {t("common:orderpage_payment_method")}:</span>
           <span>الدفع نقدًا عند الاستلام</span>
         </div>
         <div className={styles.order_borders}>
-          <span>الإجمالي</span>
+          <span>{t("common:orderpage_cost")}</span>
           <span>145 جنية </span>
         </div>
         <CustomButton
-          text={"تكرار الطلب"}
+          text={t("common:orderpage_reorder")}
           color="secondary-box"
           style={{
             padding: "1rem 0",
@@ -98,7 +109,7 @@ function OrderNumber() {
 
         <div className={styles.address}>
           <div>
-            <h4>عنوان الشحن</h4>
+            <h4>{t("profile:shipping_address")}</h4>
             <p>
               <span> ميامي جمال عبدالناصر الشارع المقابل لجزارة اللؤلؤه</span>
               <span>الاسكندرية</span>
@@ -106,7 +117,7 @@ function OrderNumber() {
             </p>
           </div>
           <div>
-            <h4>عنوان الفاتورة</h4>
+            <h4>{t("profile:billing_address")}</h4>
             <p>
               <span>محمود عبدالله</span>
               <span>ميامي جمال عبدالناصر الشارع المقابل لجزارة اللؤلؤه</span>

@@ -206,6 +206,9 @@
     border: 1px solid #ccc;
     margin-top: 1rem;
 
+    span {
+        text-transform: capitalize;
+    }
 }
 
 
@@ -216,6 +219,11 @@
     border: 1px solid #ccc;
     background-color: #fff8f3;
     font-size: 1.2rem;
+
+    span {
+
+        text-transform: capitalize;
+    }
 
     span:last-child {
         color: var(--default-color);
@@ -393,6 +401,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all .3s ease;
+            margin: 0 5px;
 
             &:hover {
                 background-color: var(--secondary-color);

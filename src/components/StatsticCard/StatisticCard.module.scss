@@ -9,6 +9,11 @@
     flex-direction: column;
     justify-content: space-between;
     font-size: 1rem;
+    width: calc(100%/4);
+
+    @media(max-width:768px) {
+        width: 100%;
+    }
 
     p {
         color: #84848B;

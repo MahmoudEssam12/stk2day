@@ -34,5 +34,16 @@
   "support_feature": "يتوفر الدعم الفني دائمًا للمتابعة معك",
   "common_qa": "الأسئلة الشائعة",
   "features": "الميزات",
-  "main_text": "اصنع لك عالم مميز كمسوق"
+  "main_text": "اصنع لك عالم مميز كمسوق",
+  "register_websiteLink": "أدخل رابط صحيح!",
+  "orderpage_product": "المنتج",
+  "orderpage_price": "السعر",
+  "orderpage_total": "المجموع",
+  "orderpage_cost": "الإجمالي",
+  "orderpage_shipping": "الشحن",
+  "orderpage_payment_method": "وسيلة الدفع",
+  "orderpage_reorder": "تكرار الطلب",
+  "merchant": "التاجر",
+  "color": "اللون",
+  "size": "المقاس"
 }

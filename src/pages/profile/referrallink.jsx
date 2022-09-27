@@ -145,10 +145,11 @@ function ReferralLink() {
         value="https://stk2day.com/"
         className={styles.disabled}
         disabled
+        style={{ marginTop: "1rem" }}
       />
       <div className={styles.links}>
         <div>
-          رابط الإحالة{" "}
+          {t("profile:referral_link")}
           <button onClick={handleUrl}>
             <i className="pi pi-copy"></i>
           </button>{" "}
@@ -186,21 +187,32 @@ function ReferralLink() {
           )}
         </div>
       </div>
-      <h2>إحصائيات روابط الاحالة </h2>
+      <h2>{t("profile:referral_stats")}</h2>
       <div className={styles.cards}>
-        <StatisticCard headerText="معدل التحويل" description="0%" />
-        <StatisticCard headerText="إجمالي التحويلات" description="0" />
-        <StatisticCard headerText="اجمالي النقرات" description="0 جنية" />
+        <StatisticCard
+          headerText={t("profile:referral_convert")}
+          description="0%"
+        />
+        <StatisticCard
+          headerText={t("profile:referral_total")}
+          description="0"
+        />
+        <StatisticCard
+          headerText={t("profile:referral_clicks")}
+          description="0 جنية"
+        />
       </div>
-      <h2>النقرات الاخيرة</h2>
-      <p>لم تكن هناك نقرات لهذه الحملة حتى الآن</p>
+      <h2>{t("profile:referral_latest_clicks")}</h2>
+      <p>{t("profile:referral_latest_clicks_text")}</p>
       <div className="field-checkbox" style={{ marginTop: "2rem" }}>
         <Checkbox
           inputId="binary"
           checked={checked}
           onChange={(e) => setChecked(e.checked)}
         />
-        <label htmlFor="binary">المحولة فقط</label>
+        <label htmlFor="binary" style={{ margin: "0 5px" }}>
+          {t("profile:referral_checkbox")}
+        </label>
       </div>
     </motion.div>
   );

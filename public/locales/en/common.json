@@ -34,5 +34,16 @@
   "support_feature": "Technical support is always available to follow up with you",
   "common_qa": "common questions",
   "features": "features",
-  "main_text": "Create a special world for you as a marketer"
+  "main_text": "Create a special world for you as a marketer",
+  "register_websiteLink": "Enter a valid link",
+  "orderpage_product": "product",
+  "orderpage_price": "price",
+  "orderpage_total": "total",
+  "orderpage_cost": "total cost",
+  "orderpage_shipping": "shipping cost",
+  "orderpage_payment_method": "payment method",
+  "orderpage_reorder": "Reorder",
+  "merchant": "Merchant",
+  "color": "color",
+  "size": "size"
 }

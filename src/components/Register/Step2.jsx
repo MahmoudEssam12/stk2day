@@ -35,10 +35,14 @@ function Step2() {
     { value: t("register:register_option2") },
     { value: t("register:register_option3") },
   ];
+
+  t("common:register_websiteLink");
   //validation schema
   const validationSchema = yup.object({
-    websiteLink: yup.string(""),
-    // .matches(urlRegex, "أدخل رابط صحيح!"),
+    websiteLink: yup
+      .string("")
+      .url(t("common:register_websiteLink"))
+      .nullable(),
     method: yup.string("").required(t("register:promote_validation")),
     foundusfrom: yup
       .array()

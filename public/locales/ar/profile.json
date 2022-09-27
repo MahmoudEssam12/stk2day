@@ -75,5 +75,12 @@
   "settings_emails_placeholder": "عناوين البريد الإلكتروني الإضافية: (مفصولة بفاصلة)",
   "settings_emails_checkbox": "المحولة فقط",
   "settings_paying_method": "حدد الطريقة التي يتم الدفع بها",
-  "settings_vod_num": "رقم فودافون كاش الخاص بك"
+  "settings_vod_num": "رقم فودافون كاش الخاص بك",
+  "referral_stats": "إحصائيات روابط الاحالة ",
+  "referral_convert": "معدل التحويل",
+  "referral_total": "إجمالي التحويلات",
+  "referral_clicks": "اجمالي النقرات",
+  "referral_latest_clicks": "النقرات الاخيرة",
+  "referral_latest_clicks_text": "لم تكن هناك نقرات لهذه الحملة حتى الآن",
+  "referral_checkbox": "المحولة فقط"
 }
