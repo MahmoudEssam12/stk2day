@@ -208,5 +208,9 @@
   .nav__container .navBarLinks {
     justify-content: center;
     overflow-y: scroll;
+    padding: 2rem 0;
+  }
+  .nav__container.active ul {
+    gap: 1rem;
   }
 }
