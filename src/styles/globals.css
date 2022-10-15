@@ -240,3 +240,6 @@ a {
 .p-rating .p-rating-icon:first-child {
   margin-left: 0.5rem;
 }
+.avatar-circle .p-avatar.p-avatar-xl .p-avatar-icon {
+  font-size: 3.5rem;
+}

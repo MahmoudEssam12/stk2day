@@ -100,7 +100,6 @@ function Navbar({}) {
       router.push(router.asPath, router.asPath, { locale: language.code });
       // }
     } else {
-      console.log("hello", languages[0]);
       setLang(languages[0]);
       // localStorage.setItem("lang",JSON.stringify(languages[0]))
       router.push(router.asPath, router.asPath, { locale: languages[0].code });

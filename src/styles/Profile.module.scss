@@ -484,3 +484,11 @@
 .disabled_input label {
     color: grey !important;
 }
+
+@media(max-width:768px) {
+
+    .toaster {
+        left: 10px;
+        width: 21rem;
+    }
+}

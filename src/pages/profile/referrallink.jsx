@@ -85,7 +85,7 @@ function ReferralLink() {
       animate={{ opacity: 1 }}
       className={` ${styles.referralLink}`}
     >
-      <Toast ref={toaster} position="bottom-left" />
+      <Toast ref={toaster} position="bottom-left" className={styles.toaster} />
       <div className={styles.inputs_wrapper}>
         <span
           className={`p-float-label ${

@@ -31,32 +31,6 @@ export async function getStaticProps({ locale }) {
 const emailRegex =
   /(?:\d{11}|^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$)/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-const validationSchema = yup.object({
-  email: yup
-    .string("")
-    .matches(emailRegex, "أدخل إيميل أو رقم الهاتف الخاص بك بشكل صحيح")
-    .required("يجب إدخال الإيميل أو رقم الهاتف"),
-  password: yup.string(""),
-  username: yup.string("").required("لايمكن ان تترك اسم المستخدمم فارغ"),
-  name: yup.string("").required("لايمكن ان تترك الإسم فارغ"),
-  mobileNumber: yup.string("").required("لايمكن ان تترك الرقم فارغ"),
-  newPassword: yup
-    .string("")
-    .matches(
-      passwordRegex,
-      "كلمة المرور يجب انت تتكون من حرف كبير و صغير و رقم ولا تقل عن 8 احرف"
-    ),
-  confirmNewPassword: yup.string("").when("newPassword", {
-    is: (val) => (val && val.length > 0 ? true : false),
-    then: yup
-      .string("")
-      .oneOf(
-        [yup.ref("newPassword")],
-        "you should enter the new password again"
-      )
-      .required("you should enter the new password again"),
-  }),
-});
 
 function Profile() {
   const { t } = useTranslation();
@@ -73,7 +47,32 @@ function Profile() {
       setImageUrl(reader.result);
     };
   };
-
+  const validationSchema = yup.object({
+    email: yup
+      .string("")
+      .matches(emailRegex, t("common:email_check"))
+      .required(t("common:email_validation")),
+    username: yup.string("").required("لايمكن ان تترك اسم المستخدمم فارغ"),
+    name: yup.string("").required("لايمكن ان تترك الإسم فارغ"),
+    mobileNumber: yup.string("").required("لايمكن ان تترك الرقم فارغ"),
+    password: yup.string(""),
+    newPassword: yup
+      .string("")
+      .matches(
+        passwordRegex,
+        "كلمة المرور يجب انت تتكون من حرف كبير و صغير و رقم ولا تقل عن 8 احرف"
+      ),
+    confirmNewPassword: yup.string("").when("newPassword", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: yup
+        .string("")
+        .oneOf(
+          [yup.ref("newPassword")],
+          "you should enter the new password again"
+        )
+        .required("you should enter the new password again"),
+    }),
+  });
   const formik = useFormik({
     initialValues: {
       email: "ahmedmousa@yahoo.com",

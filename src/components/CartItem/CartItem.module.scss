@@ -56,6 +56,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    text-align: center;
 
     button {
         width: 44px;
@@ -83,4 +84,9 @@
         font-size: 1.1rem;
     }
 
+    @media(max-width:630px) {
+        span {
+            width: 100%;
+        }
+    }
 }

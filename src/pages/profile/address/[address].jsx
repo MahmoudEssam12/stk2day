@@ -44,8 +44,21 @@ function AddressBill() {
   const { t } = useTranslation();
   const validationSchema = yup.object({
     name: yup.string("").required(t("common:general_validation")),
-    country: yup.string("").required(t("common:general_validation")),
-    gov: yup.string("").required(t("common:general_validation")),
+    country: yup
+      .object()
+      .shape({
+        name: yup.string(""),
+        code: yup.string(""),
+      })
+      .required(t("common:general_validation")),
+    gov: yup
+      .object()
+      .shape({
+        id: yup.string(""),
+        governorate_name_ar: yup.string(""),
+        governorate_name_en: yup.string(""),
+      })
+      .required(t("common:general_validation")),
     phonenumber: yup.string("").required(t("common:general_validation")),
     zipcode: yup.string("").required(t("common:general_validation")),
     companyname: yup.string("").required(t("common:general_validation")),
@@ -54,16 +67,14 @@ function AddressBill() {
     initialValues: {
       name: "",
       country: "",
-      gov: yup.object().shape({
-        id: yup.string(""),
-        governorate_name_ar: yup.string(""),
-        governorate_name_en: yup.string(""),
-      }),
+      gov: "",
       phonenumber: "",
       zipcode: "",
       companyname: "",
     },
-    onSubmit: () => {},
+    onSubmit: (value) => {
+      console.log(value);
+    },
     validationSchema,
   });
 
@@ -81,7 +92,17 @@ function AddressBill() {
               : `العنوان - ستوك تو داي `}
           </title>
         </Head>
-        <h1>{address}</h1>
+        {address === "shippingaddress" ? (
+          router.locale === "en" ? (
+            <h1>Shipping Address</h1>
+          ) : (
+            <h1>عنوان الشحن</h1>
+          )
+        ) : address === "billingaddress" && router.locale === "en" ? (
+          <h1>Billing Address</h1>
+        ) : (
+          <h1>عنوان الفاتورة</h1>
+        )}
         <form onSubmit={formik.handleSubmit} className="">
           <span
             className={`p-float-label ${

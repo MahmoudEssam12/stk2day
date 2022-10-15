@@ -82,5 +82,6 @@
   "referral_clicks": "اجمالي النقرات",
   "referral_latest_clicks": "النقرات الاخيرة",
   "referral_latest_clicks_text": "لم تكن هناك نقرات لهذه الحملة حتى الآن",
-  "referral_checkbox": "المحولة فقط"
+  "referral_checkbox": "المحولة فقط",
+  "calendar_range": "يمكن ان تختار يوم واحد او نطاق من التواريخ عن طريق الضغط على يوم و الضغط مرة اخرى على يوم اخر"
 }

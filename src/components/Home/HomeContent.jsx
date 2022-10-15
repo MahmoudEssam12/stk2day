@@ -24,7 +24,7 @@ function Home() {
     <main>
       <div className="c-container">
         {/* <Header /> */}
-        <HeaderText mainHeader={t("common:main_text")} />
+        {/* <HeaderText mainHeader={t("common:main_text")} /> */}
         <ProductsGrid />
       </div>
       <Aboutus />

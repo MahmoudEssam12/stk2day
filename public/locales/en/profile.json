@@ -82,5 +82,6 @@
   "referral_clicks": "total clicks",
   "referral_latest_clicks": "last clicks",
   "referral_latest_clicks_text": "There have been no clicks for this campaign yet",
-  "referral_checkbox": "Transformed only"
+  "referral_checkbox": "Transformed only",
+  "calendar_range": "You can select Range of Dates by pressing on day and then press another one"
 }

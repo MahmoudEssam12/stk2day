@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { InputText } from "primereact/inputtext";
+import { Password } from "primereact/password";
 import { Divider } from "primereact/divider";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import { useFormik, Formik } from "formik";
 import * as yup from "yup";
 import Head from "next/head";
+import Link from "next/link";
 import FormsLayout from "../../layout/formsLayout";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "../../styles/Login.module.scss";
+import registerStyles from "../../styles/Register.module.scss";
 import Step2 from "../../components/Register/Step2";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -24,7 +29,7 @@ export async function getStaticProps({ locale }) {
 const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8}(\.[a-z]{2,8})?)$/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
 
-function Register() {
+function Register2() {
   const { t } = useTranslation();
   const router = useRouter();
   const [initialValues, setInitialValues] = useState({
@@ -390,7 +395,7 @@ function Register() {
   );
 }
 
-Register.getLayout = function getLayout(page) {
+Register2.getLayout = function getLayout(page) {
   return (
     <FormsLayout en="Register" ar="إنشاء حساب">
       {page}
@@ -398,4 +403,4 @@ Register.getLayout = function getLayout(page) {
   );
 };
 
-export default Register;
+export default Register2;

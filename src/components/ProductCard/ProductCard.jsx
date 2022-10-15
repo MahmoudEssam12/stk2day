@@ -98,7 +98,7 @@ function ProductCard({ id = "", img, name, merchant, price, rating = 4 }) {
   }, []);
   return (
     <div className={styles.product_card}>
-      <Toast ref={toaster} position="bottom-left" />
+      <Toast ref={toaster} className={styles.toaster} position="bottom-left" />
       <div className={styles.img_wrapper}>
         <picture>
           <img src={`/images/Rectangle ${img}.png`} alt={name} />
@@ -107,7 +107,7 @@ function ProductCard({ id = "", img, name, merchant, price, rating = 4 }) {
       <h4 className={styles.product_name}>
         <Link href={`/products/product/${name}`}>{name}</Link>
       </h4>
-      <Link href="/merchant" className={styles.merchant}>
+      <Link href="/seller" className={styles.merchant}>
         {merchant}
       </Link>
       <div className={styles.rating}>

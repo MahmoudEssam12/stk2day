@@ -263,6 +263,8 @@ function Orders() {
               readOnlyInput
               showIcon
               placeholder={t("profile:order_date")}
+              maxDate={new Date()}
+              tooltip={t("profile:calendar_range")}
             />
           </div>
           <span

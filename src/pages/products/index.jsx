@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import styles from "../../styles/Products.module.scss";
-import inputStyles from "../../styles/Inputs.module.scss";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import ProductsRow from "../../components/ProductsRow/ProductsRow";
 
