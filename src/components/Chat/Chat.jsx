@@ -2,17 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { InputTextarea } from "primereact/inputtextarea";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-const itemVariants = {
-  open: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 },
-  },
-  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
-};
+
 function Chat() {
   const router = useRouter();
   const [message, setMessage] = useState("");
@@ -20,24 +13,18 @@ function Chat() {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
   const sendMsg = () => {
+    if (message === "") return;
     setMessages((prev) => {
-      if (message.length) {
-        let chat = [...prev, message];
-        setMessage("");
-        return chat;
-      }
+      let chat = [...prev, message];
+      setMessage("");
+      return chat;
     });
   };
   const lastMsg = useRef();
   const open = () => {
     setIsOpen((prev) => !prev);
   };
-  // let lastMsg;
-  useEffect(() => {
-    //  lastMsg = document.querySelectorAll(".client-msg");
-    console.log(lastMsg);
-    // console.log(lastMsg[lastMsg.length - 1]);
-  }, [messages]);
+
   return (
     <div
       className="chatwrapper"
