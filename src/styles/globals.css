@@ -243,3 +243,9 @@ a {
 .avatar-circle .p-avatar.p-avatar-xl .p-avatar-icon {
   font-size: 3.5rem;
 }
+.p-confirm-dialog-accept {
+  background-color: var(--secondary-color);
+}
+.p-confirm-dialog-reject span {
+  color: var(--secondary-color);
+}

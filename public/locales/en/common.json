@@ -45,5 +45,9 @@
   "orderpage_reorder": "Reorder",
   "merchant": "Merchant",
   "color": "color",
-  "size": "size"
+  "size": "size",
+  "chat_header": "Stk2day",
+  "chat_sendbtn": "send",
+  "chat_msg_placeholder": "write message",
+  "chat": "Chat"
 }

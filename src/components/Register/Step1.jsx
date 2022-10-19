@@ -21,7 +21,7 @@ function Step1({ values, errors, validate, handleChange, footer }) {
           } input_wrapper`}
         >
           <i
-            className={`pi pi-user "inputIcons" ${
+            className={`pi pi-user inputIcons ${
               errors.firstname && "invalid_color"
             } ${router.locale === "en" ? "icon_en" : ""}`}
           ></i>

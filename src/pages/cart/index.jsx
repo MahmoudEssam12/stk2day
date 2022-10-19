@@ -128,7 +128,7 @@ function Cart() {
 
                 <label htmlFor="search">{t("cart:voucher")}</label>
               </span>
-              <div className={router.locale === "en" ? " " : styles.ar}>
+              <div className={router.locale === "en" ? styles.en : styles.ar}>
                 <CustomButton
                   text={t("cart:add_code_btn")}
                   color="secondary-box"
@@ -136,6 +136,7 @@ function Cart() {
                     padding: "1rem 0",
                     backgroundColor: "var(--secondary-color)",
                     textTransform: "capitalize",
+                    height: "60px",
                   }}
                 />
               </div>
@@ -179,7 +180,6 @@ function Cart() {
                 id="shipping-address"
                 onChange={handleChange}
               />
-
               <label htmlFor="shipping-address">
                 {t("cart:shipping_address")}
               </label>

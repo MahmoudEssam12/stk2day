@@ -31,6 +31,11 @@ function Products() {
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
   };
+  const search = (e) => {
+    e.preventDefault();
+    // router.push(`/products/search/${searchValue}`);
+    router.push(`/products/search?keyword=${searchValue}`);
+  };
   return (
     <motion.div
       exit={{ opacity: 0, y: 20 }}
@@ -39,7 +44,7 @@ function Products() {
       className={`c-container`}
     >
       <div className="products">
-        <form className={`search_form ${styles.search_form}`}>
+        <form onSubmit={search} className={`search_form ${styles.search_form}`}>
           <span
             className={`p-float-label  ${
               router.locale === "en" && "p-input-icon-left"

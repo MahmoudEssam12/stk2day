@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "../../styles/Products.module.scss";
 function ProductsRow({ title }) {
   let num = 4;
+  const productRow = useRef();
   return (
     <section className={styles.row}>
       <h3>{title}</h3>
@@ -10,6 +11,11 @@ function ProductsRow({ title }) {
         className={`${styles.products_row} ${
           num <= 4 ? styles.hide_scroll : " "
         }`}
+        ref={productRow}
+        onWheel={(e) => {
+          e.preventDefault();
+          productRow.current.scrollLeft += e.deltaY;
+        }}
       >
         <ProductCard
           img="15"

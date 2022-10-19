@@ -73,14 +73,25 @@
 
     }
 
-    .ar button {
-        border-radius: 0;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
 
-    }
+}
+
+.ar button {
+    border-radius: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+}
+
+.en button {
+    border-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
 }
 
 .order_total {

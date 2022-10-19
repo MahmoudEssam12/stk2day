@@ -45,5 +45,9 @@
   "orderpage_reorder": "تكرار الطلب",
   "merchant": "التاجر",
   "color": "اللون",
-  "size": "المقاس"
+  "size": "المقاس",
+  "chat_header": "ستوك تو داي",
+  "chat_sendbtn": "إرسال",
+  "chat_msg_placeholder": "اكتب رسالة",
+  "chat": "رسالة"
 }

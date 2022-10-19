@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Chat from '../components/Chat/Chat';
 
 export const MainLayout = ({ children, en = "", ar = "" }) => {
   const router = useRouter()
@@ -16,6 +17,7 @@ export const MainLayout = ({ children, en = "", ar = "" }) => {
       </Head>
       <Navbar />
       <main>{children}</main>
+      <Chat />
       <Footer />
     </>
   )
