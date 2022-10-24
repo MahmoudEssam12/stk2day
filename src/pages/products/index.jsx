@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MainLayout } from "../../layout/mainLayout";
 import { InputText } from "primereact/inputtext";
 import { motion } from "framer-motion";
@@ -10,6 +10,7 @@ import { useTranslation } from "next-i18next";
 import styles from "../../styles/Products.module.scss";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import ProductsRow from "../../components/ProductsRow/ProductsRow";
+import ProductsCarousel from "../../components/ProductsRow/ProductsCarousel";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -26,14 +27,28 @@ export async function getStaticProps({ locale }) {
 }
 function Products() {
   const [searchValue, setSearchValue] = useState("");
+  const [valid, setValid] = useState(true);
+  const searchRef = useRef();
   const router = useRouter();
   const { t } = useTranslation();
   const handleSearch = (e) => {
+    if (searchValue === "") {
+      setValid(false);
+      // searchRef.current.classList.add("not-valid");
+    } else {
+      setValid(true);
+      // searchRef.current.classList.remove("not-valid");
+    }
     setSearchValue(e.target.value);
   };
   const search = (e) => {
     e.preventDefault();
     // router.push(`/products/search/${searchValue}`);
+    if (searchValue === "") {
+      setValid(false);
+      // searchRef.current.classList.add("not-valid");
+      return;
+    }
     router.push(`/products/search?keyword=${searchValue}`);
   };
   return (
@@ -62,7 +77,9 @@ function Products() {
               name="search"
               id="search"
               onChange={handleSearch}
-              className={"text-input"}
+              className={`text-input ${!valid && "not-valid"}`}
+              style={{ borderColor: !valid && "red" }}
+              ref={searchRef}
             />
 
             <label htmlFor="search">{t("common:search_txt")}</label>
@@ -90,6 +107,7 @@ function Products() {
           <CategoryCard img="kids" text={t("categories:kids")} link="kids" />
         </div>
         <ProductsRow title={t("products:offers")} />
+        {/* <ProductsCarousel title={t("products:best_seller")} /> */}
         <ProductsRow title={t("products:best_seller")} />
         <ProductsRow title={t("products:recently_added")} />
       </div>
@@ -166,6 +184,9 @@ function Products() {
             overflow-x: scroll;
             padding: 1rem 0;
             gap: 1rem;
+          }
+          .not-valid {
+            border-color: red !important;
           }
         `}
       </style>

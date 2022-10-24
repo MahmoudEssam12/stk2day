@@ -70,7 +70,7 @@ function Chat() {
         >
           <div className="header">
             <h3>{t("common:chat_header")}</h3>
-            <button className="close-btn">
+            <button className="close-btn" onClick={open}>
               <FontAwesomeIcon icon={faXmark} />
             </button>
           </div>

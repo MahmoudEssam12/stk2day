@@ -97,7 +97,7 @@ function ProductCard({ id = "", img, name, merchant, price, rating = 4 }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className={styles.product_card}>
+    <div className={`${styles.product_card}`}>
       <Toast ref={toaster} className={styles.toaster} position="bottom-left" />
       <div className={styles.img_wrapper}>
         <picture>

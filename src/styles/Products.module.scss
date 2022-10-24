@@ -61,6 +61,10 @@
     }
 }
 
+.not-valid {
+    border-color: red !important;
+}
+
 .row {
     margin: 2rem 0;
 
@@ -69,39 +73,39 @@
     }
 }
 
-.products_row {
-    display: flex;
-    justify-content: space-between;
-    overflow-x: scroll;
-    padding: 1rem 0;
-    gap: 1rem;
+// .products_row {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     overflow-x: scroll;
+    //     padding: 1rem 0;
+    //     gap: 1rem;
 
-    // &::-webkit-scrollbar-thumb {
-    //     background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
-    //     box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-    //     border-radius: 100px;
+    //     // &::-webkit-scrollbar-thumb {
+    //     //     background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+    //     //     box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    //     //     border-radius: 100px;
+    //     // }
+    //     &::-webkit-scrollbar {
+    //         width: 1em;
+    //         height: 5px;
+    //     }
+
+    //     &::-webkit-scrollbar-track {
+    //         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    //         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    //         border-radius: 5px;
+    //     }
+
+    //     &::-webkit-scrollbar-thumb {
+    //         background-color: var(--secondary-color);
+    //         outline: 1px solid slategrey;
+    //         border-radius: 5px;
+    //         // height: 3px;
+    //     }
+
+    //     scrollbar-width:thin;
+    //     scrollbar-color: var(--secondary-color) #ccc;
+    //     scroll-behavior: smooth;
+    //     border-radius: 5px;
+
     // }
-    &::-webkit-scrollbar {
-        width: 1em;
-        height: 5px;
-    }
-
-    &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        border-radius: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--secondary-color);
-        outline: 1px solid slategrey;
-        border-radius: 5px;
-        // height: 3px;
-    }
-
-    scrollbar-width:thin;
-    scrollbar-color: var(--secondary-color) #ccc;
-    scroll-behavior: smooth;
-    border-radius: 5px;
-
-}
