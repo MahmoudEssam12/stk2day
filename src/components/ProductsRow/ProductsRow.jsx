@@ -5,15 +5,18 @@ import { PrevButton, NextButton } from "./EmablaButtons";
 import Autoplay from "embla-carousel-autoplay";
 
 import styles from "../../styles/Products.module.scss";
+import { useRouter } from "next/router";
 function ProductsRow({ title }) {
   let num = 4;
   const productRow = useRef();
+  const { locale } = useRouter();
   // const [emblaRef] = useEmblaCarousel();
   const [viewportRef, embla] = useEmblaCarousel(
     {
       slidesToScroll: 1,
       containScroll: "trimSnaps",
       loop: false,
+      direction: locale === "en" ? "ltr" : "rtl",
     },
     [Autoplay()]
   );

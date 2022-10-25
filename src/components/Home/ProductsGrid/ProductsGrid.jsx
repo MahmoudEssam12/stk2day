@@ -127,26 +127,9 @@ function ProductsGrid() {
               margin: 0 1rem;
             }
           }
-
-          @media (max-width: 768px) {
-            .products_wrapper {
-              grid-template-columns: repeat(2, 1fr);
-
-              .product:last-child {
-                grid-column: span 1;
-                grid-row-start: auto;
-                grid-row-end: auto;
-              }
-            }
-          }
-
           @media (max-width: 576px) {
-            .products_wrapper {
-              grid-template-columns: repeat(1, 1fr);
-
-              .product:first-child {
-                grid-column: auto;
-              }
+            .grid_wrapper > .product {
+              width: 50%;
             }
           }
         `}
