@@ -11,6 +11,7 @@ import {
   setFavourits,
   removeFavourit,
 } from "../../store/slices/favourtisSlice";
+import Image from "next/image";
 import { useAddToCart } from "../../utilities/addToCart";
 function ProductCard({ id = "", img, name, merchant, price, rating = 4 }) {
   const { t } = useTranslation();
@@ -100,9 +101,10 @@ function ProductCard({ id = "", img, name, merchant, price, rating = 4 }) {
     <div className={`${styles.product_card}`}>
       <Toast ref={toaster} className={styles.toaster} position="bottom-left" />
       <div className={styles.img_wrapper}>
-        <picture>
+        {/* <picture>
           <img src={`/images/Rectangle ${img}.png`} alt={name} />
-        </picture>
+        </picture> */}
+        <Image src={`/images/Rectangle ${img}.png`} alt={name} layout="fill" />
       </div>
       <h4 className={styles.product_name}>
         <Link href={`/products/product/${name}`}>{name}</Link>
